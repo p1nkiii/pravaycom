@@ -104,7 +104,7 @@ export default function Home() {
               Why Choose PassionAI?
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Our AI-powered platform offers a unique approach to self-discovery that's both personal and profound.
+              Our AI-powered platform offers a unique approach to self-discovery that&apos;s both personal and profound.
             </p>
           </div>
           

@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Convert chat messages to OpenAI format
-    const openaiMessages = chatMessages.map((msg: any) => ({
+    const openaiMessages = chatMessages.map((msg: { role: string; content: string }) => ({
       role: msg.role === 'assistant' ? 'assistant' : 'user',
       content: msg.content
     }))

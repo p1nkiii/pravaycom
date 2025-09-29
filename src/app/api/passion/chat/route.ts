@@ -49,9 +49,9 @@ export async function POST(request: NextRequest) {
     // Prepare conversation for OpenAI (including the new user message)
     const conversationWithNewMessage = [...existingChat, userMessage]
     
-    // Convert to OpenAI format
+    // Convert to OpenAI format with proper typing
     const openaiMessages = conversationWithNewMessage.map(msg => ({
-      role: msg.role === 'assistant' ? 'assistant' : 'user',
+      role: (msg.role === 'assistant' ? 'assistant' : 'user') as 'user' | 'assistant',
       content: msg.content
     }))
 

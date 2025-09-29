@@ -4,9 +4,9 @@ import ClientChat from './client-chat'
 import PlanButton from './plan-button'
 
 interface PassionPageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export default async function PassionIdPage({ params }: PassionPageProps) {
@@ -20,11 +20,14 @@ export default async function PassionIdPage({ params }: PassionPageProps) {
     redirect('/login')
   }
 
+  // Await params in Next.js 15
+  const { id } = await params
+
   // Fetch the specific passion entry
   const { data: passion, error } = await supabase
     .from('passion')
     .select('*')
-    .eq('id', params.id)
+    .eq('id', id)
     .eq('user_id', user.id)
     .single()
 
@@ -60,14 +63,14 @@ export default async function PassionIdPage({ params }: PassionPageProps) {
       <main className="h-[calc(100vh-4rem)]">
         <ClientChat 
           initialMessages={chatMessages} 
-          passionId={params.id}
+          passionId={id}
           isCompleted={passion.done}
         />
         
         {/* Access Plan Button - Shows when conversation is done */}
         {passion.done && (
           <PlanButton 
-            passionId={params.id}
+            passionId={id}
             chatMessages={chatMessages}
             existingPlan={passion.plan}
           />

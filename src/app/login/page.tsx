@@ -2,6 +2,7 @@ import { login, signup } from './actions'
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
+import Link from 'next/link'
 
 export default function LoginPage() {
   return (
@@ -11,12 +12,12 @@ export default function LoginPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <a href="/" className="text-2xl font-bold text-gray-800">PassionAI</a>
+              <Link href="/" className="text-2xl font-bold text-gray-800">PassionAI</Link>
             </div>
             <div className="flex items-center space-x-4">
-              <a href="/" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="/" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">
                 Back to Home
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -95,9 +96,9 @@ export default function LoginPage() {
           <div className="mt-8 text-center">
             <p className="text-gray-600">
               Ready to discover your passion?{' '}
-              <a href="/" className="text-gray-800 font-medium hover:underline">
+              <Link href="/" className="text-gray-800 font-medium hover:underline">
                 Learn more about PassionAI
-              </a>
+              </Link>
             </p>
           </div>
         </div>

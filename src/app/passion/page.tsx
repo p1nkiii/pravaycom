@@ -46,7 +46,7 @@ export default async function PassionPage() {
             Discover Your Passion
           </h1>
           <p className="text-lg text-gray-600">
-            Let's have a conversation to explore what truly drives you.
+            Let&apos;s have a conversation to explore what truly drives you.
           </p>
         </div>
 
@@ -62,7 +62,7 @@ export default async function PassionPage() {
                 </div>
                 <div className="bg-gray-100 rounded-lg p-4 max-w-md">
                   <p className="text-gray-800">
-                    Hello! I'm here to help you discover your passions. Let's start with a simple question: What activities or topics make you lose track of time when you're engaged with them?
+                    Hello! I&apos;m here to help you discover your passions. Let&apos;s start with a simple question: What activities or topics make you lose track of time when you&apos;re engaged with them?
                   </p>
                 </div>
               </div>

@@ -3,9 +3,14 @@
 import { useState } from 'react'
 import PlanModal from './plan-modal'
 
+interface Message {
+  role: 'user' | 'assistant'
+  content: string
+}
+
 interface PlanButtonProps {
   passionId: string
-  chatMessages: any[]
+  chatMessages: Message[]
   existingPlan?: string
 }
 

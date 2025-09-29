@@ -1,7 +1,22 @@
 'use client'
 
+interface Message {
+  role: 'user' | 'assistant'
+  content: string
+}
+
+interface Passion {
+  id: string
+  user_id: string
+  chat: Message[] | null
+  updated_at: string
+  created_at: string
+  done: boolean
+  plan: string | null
+}
+
 interface ConversationCardProps {
-  passion: any
+  passion: Passion
   index: number
 }
 

@@ -2,11 +2,16 @@
 
 import { useState, useEffect } from 'react'
 
+interface Message {
+  role: 'user' | 'assistant'
+  content: string
+}
+
 interface PlanModalProps {
   isOpen: boolean
   onClose: () => void
   passionId: string
-  chatMessages: any[]
+  chatMessages: Message[]
   existingPlan?: string
 }
 
@@ -50,6 +55,7 @@ export default function PlanModal({ isOpen, onClose, passionId, chatMessages, ex
     if (isOpen && !existingPlan && !plan && !isLoading) {
       generatePlan()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, existingPlan, plan, isLoading])
 
   if (!isOpen) return null
