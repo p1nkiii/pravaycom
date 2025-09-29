@@ -1,6 +1,7 @@
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import { startTest } from './actions'
+import ConversationCard from './conversation-card'
 
 export default async function DashboardPage() {
   const supabase = await createClient()
@@ -137,43 +138,11 @@ export default async function DashboardPage() {
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Recent Conversations</h2>
             <div className="grid gap-4">
               {passions.slice(0, 5).map((passion, index) => (
-                <div key={passion.id} className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
-                        <span className="text-gray-600 font-semibold">#{index + 1}</span>
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold text-gray-800">
-                          Passion Discovery Session
-                        </h3>
-                        <p className="text-sm text-gray-600">
-                          {new Date(passion.created_at).toLocaleDateString('en-US', {
-                            weekday: 'long',
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                          })}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-center space-x-4">
-                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                        passion.done 
-                          ? 'bg-green-100 text-green-800' 
-                          : 'bg-yellow-100 text-yellow-800'
-                      }`}>
-                        {passion.done ? 'Completed' : 'In Progress'}
-                      </span>
-                      <a
-                        href={`/passion/${passion.id}`}
-                        className="bg-gray-800 text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors"
-                      >
-                        {passion.done ? 'View' : 'Continue'}
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                <ConversationCard 
+                  key={passion.id}
+                  passion={passion}
+                  index={index}
+                />
               ))}
             </div>
           </div>

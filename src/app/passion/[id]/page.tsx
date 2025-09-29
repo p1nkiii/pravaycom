@@ -1,6 +1,7 @@
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import ClientChat from './client-chat'
+import PlanButton from './plan-button'
 
 interface PassionPageProps {
   params: {
@@ -62,6 +63,15 @@ export default async function PassionIdPage({ params }: PassionPageProps) {
           passionId={params.id}
           isCompleted={passion.done}
         />
+        
+        {/* Access Plan Button - Shows when conversation is done */}
+        {passion.done && (
+          <PlanButton 
+            passionId={params.id}
+            chatMessages={chatMessages}
+            existingPlan={passion.plan}
+          />
+        )}
       </main>
 
     </div>
