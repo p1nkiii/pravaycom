@@ -15,8 +15,8 @@ export async function signup(formData: FormData) {
 
   // Validate age
   const ageNum = parseInt(age)
-  if (isNaN(ageNum) || ageNum < 13 || ageNum > 120) {
-    redirect('/signup?error=Please enter a valid age between 13 and 120')
+  if (isNaN(ageNum) || ageNum < 0 || ageNum > 120) {
+    redirect('/signup?error=Please enter a valid age between 0 and 120')
   }
 
   // Validate password length
