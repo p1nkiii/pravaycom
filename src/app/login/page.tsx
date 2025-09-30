@@ -1,14 +1,15 @@
-import { login, signup } from './actions'
+import { login } from './actions'
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 import Link from 'next/link'
 
-export default function LoginPage({
+export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: { error?: string; message?: string }
+  searchParams: Promise<{ error?: string; message?: string }>
 }) {
+  const params = await searchParams
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -39,10 +40,10 @@ export default function LoginPage({
             </p>
 
             {/* Error Message Display */}
-            {searchParams.error && searchParams.message && (
+            {params.error && params.message && (
               <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
                 <p className="text-sm text-red-800">
-                  {decodeURIComponent(searchParams.message)}
+                  {decodeURIComponent(params.message)}
                 </p>
               </div>
             )}
