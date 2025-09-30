@@ -15,7 +15,7 @@ export async function login(formData: FormData) {
     password: formData.get('password') as string,
   }
 
-  const { error } = await supabase.auth.signInWithPassword(data)
+  const { data: authData, error } = await supabase.auth.signInWithPassword(data)
 
   if (error) {
     // Handle specific error cases
@@ -29,6 +29,11 @@ export async function login(formData: FormData) {
     
     // Generic error fallback
     redirect('/login?error=auth_error&message=' + encodeURIComponent(error.message))
+  }
+
+  // Additional check: Verify email is confirmed
+  if (authData.user && !authData.user.email_confirmed_at) {
+    redirect('/login?error=email_not_verified&message=' + encodeURIComponent('Please verify your email before logging in. Check your inbox for the verification link.'))
   }
 
   revalidatePath('/', 'layout')

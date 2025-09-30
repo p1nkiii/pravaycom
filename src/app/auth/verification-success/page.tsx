@@ -1,28 +1,15 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 export default function VerificationSuccessPage() {
-  const [countdown, setCountdown] = useState(3)
   const router = useRouter()
 
   useEffect(() => {
-    // Start countdown
-    const timer = setInterval(() => {
-      setCountdown((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer)
-          router.push('/login')
-          return 0
-        }
-        return prev - 1
-      })
-    }, 1000)
-
-    // Cleanup timer on component unmount
-    return () => clearInterval(timer)
+    // Redirect to login page immediately after component mounts
+    router.push('/login')
   }, [router])
 
   return (
@@ -64,21 +51,16 @@ export default function VerificationSuccessPage() {
             </h2>
             
             <p className="text-gray-600 mb-6">
-              Your email has been verified and your account is now active.
+              Your email has been verified and your account is now active. Redirecting you to login...
             </p>
 
-            {/* Countdown and redirect info */}
+            {/* Loading indicator */}
             <div className="bg-green-50 rounded-lg p-6 mb-6">
               <div className="flex items-center justify-center mb-3">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                  {countdown}
-                </div>
+                <div className="w-8 h-8 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
               </div>
-              <p className="text-green-800 font-medium mb-2">
+              <p className="text-green-800 font-medium">
                 Redirecting to login page...
-              </p>
-              <p className="text-sm text-green-700">
-                You&apos;ll be automatically redirected in {countdown} second{countdown !== 1 ? 's' : ''}
               </p>
             </div>
 
