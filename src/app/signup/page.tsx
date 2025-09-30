@@ -1,14 +1,10 @@
-import { login, signup } from './actions'
+import { signup } from './actions'
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 import Link from 'next/link'
 
-export default function LoginPage({
-  searchParams,
-}: {
-  searchParams: { error?: string; message?: string }
-}) {
+export default function SignupPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -27,27 +23,42 @@ export default function LoginPage({
         </div>
       </nav>
 
-      {/* Login Form Section */}
+      {/* Signup Form Section */}
       <section className="py-20">
         <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
           <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8">
             <h2 className="text-xl font-bold text-gray-800">
-              Welcome to PassionAI
+              Create Your Account
             </h2>
             <p className="mt-2 max-w-sm text-sm text-gray-600">
-              Sign in to start discovering your true passion through AI conversations
+              Join PassionAI and start discovering your true passion through AI conversations
             </p>
 
-            {/* Error Message Display */}
-            {searchParams.error && searchParams.message && (
-              <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-                <p className="text-sm text-red-800">
-                  {decodeURIComponent(searchParams.message)}
-                </p>
-              </div>
-            )}
+            <form className="my-8" action={signup}>
+              <LabelInputContainer className="mb-4">
+                <Label htmlFor="first_name">First Name</Label>
+                <Input 
+                  id="first_name" 
+                  name="first_name"
+                  placeholder="John" 
+                  type="text" 
+                  required
+                />
+              </LabelInputContainer>
 
-            <form className="my-8" action={login}>
+              <LabelInputContainer className="mb-4">
+                <Label htmlFor="age">Age</Label>
+                <Input 
+                  id="age" 
+                  name="age"
+                  placeholder="25" 
+                  type="number" 
+                  required
+                  min={13}
+                  max={120}
+                />
+              </LabelInputContainer>
+
               <LabelInputContainer className="mb-4">
                 <Label htmlFor="email">Email Address</Label>
                 <Input 
@@ -67,6 +78,7 @@ export default function LoginPage({
                   placeholder="••••••••" 
                   type="password" 
                   required
+                  minLength={6}
                 />
               </LabelInputContainer>
 
@@ -74,7 +86,7 @@ export default function LoginPage({
                 className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-gray-800 to-gray-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset]"
                 type="submit"
               >
-                Sign In &rarr;
+                Create Account &rarr;
                 <BottomGradient />
               </button>
 
@@ -82,9 +94,9 @@ export default function LoginPage({
 
               <div className="text-center">
                 <p className="text-sm text-gray-600">
-                  Don&apos;t have an account?{' '}
-                  <Link href="/signup" className="text-gray-800 font-medium hover:underline">
-                    Create one
+                  Already have an account?{' '}
+                  <Link href="/login" className="text-gray-800 font-medium hover:underline">
+                    Sign in
                   </Link>
                 </p>
               </div>
@@ -92,7 +104,7 @@ export default function LoginPage({
 
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
-                By signing in, you agree to our{' '}
+                By creating an account, you agree to our{' '}
                 <a href="#" className="text-gray-800 hover:underline">
                   Terms of Service
                 </a>{' '}
