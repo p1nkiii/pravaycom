@@ -1,11 +1,12 @@
 import Link from 'next/link'
 
-export default function CheckEmailPage({
+export default async function CheckEmailPage({
   searchParams,
 }: {
-  searchParams: { email?: string }
+  searchParams: Promise<{ email?: string }>
 }) {
-  const email = searchParams.email || 'your email'
+  const params = await searchParams
+  const email = params.email || 'your email'
 
   return (
     <div className="min-h-screen bg-white">
