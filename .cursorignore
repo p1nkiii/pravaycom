@@ -1,0 +1,7 @@
+# This file tells Cursor what to ignore (separate from git)
+# By default, Cursor respects .gitignore, but we can override it here
+# We're allowing Cursor to see .env.local for development help
+
+# Ignore heavy directories
+node_modules/
+.next/

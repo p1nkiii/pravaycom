@@ -2,6 +2,8 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import { startTest } from './actions'
 import ConversationCard from './conversation-card'
+import BuyButton from './buy-button'
+import PaymentMessage from './payment-message'
 
 export default async function DashboardPage() {
   const supabase = await createClient()
@@ -24,6 +26,16 @@ export default async function DashboardPage() {
   if (error) {
     console.error('Error fetching passions:', error)
   }
+
+  // Check user's credits
+  const { data: profile } = await supabase
+    .from('user_profiles')
+    .select('credits, total_purchased')
+    .eq('id', user.id)
+    .single()
+
+  const credits = profile?.credits || 0
+  const hasCredits = credits > 0
 
   // Get user's first name from user metadata
   const firstName = user.user_metadata?.first_name || user.email?.split('@')[0] || 'User'
@@ -53,6 +65,8 @@ export default async function DashboardPage() {
 
       {/* Main Dashboard Content */}
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <PaymentMessage />
+
         {/* Welcome Section */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">
@@ -112,23 +126,57 @@ export default async function DashboardPage() {
           </div>
         )}
 
-        {/* Start New Conversation */}
+        {/* Start New Conversation or Buy Credits */}
         <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg p-8 mb-8">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-white mb-4">
-              Ready to discover more about yourself?
-            </h2>
-            <p className="text-gray-300 mb-6">
-              Start a new conversation with our AI to explore your passions and interests.
-            </p>
-            <form action={startTest}>
-              <button 
-                type="submit"
-                className="bg-white text-gray-800 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors"
-              >
-                Start New Conversation
-              </button>
-            </form>
+            {hasCredits ? (
+              <>
+                <div className="inline-flex items-center bg-white/10 rounded-full px-4 py-2 mb-4">
+                  <span className="text-white font-semibold">{credits} {credits === 1 ? 'Credit' : 'Credits'} Available</span>
+                </div>
+                <h2 className="text-2xl font-bold text-white mb-4">
+                  Ready to discover more about yourself?
+                </h2>
+                <p className="text-gray-300 mb-6">
+                  Start a new conversation with our AI to explore your passions and interests.
+                </p>
+                <form action={startTest}>
+                  <button 
+                    type="submit"
+                    className="bg-white text-gray-800 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors"
+                  >
+                    Start New Conversation
+                  </button>
+                </form>
+              </>
+            ) : (
+              <>
+                <div className="inline-flex items-center bg-white/10 rounded-full px-4 py-2 mb-4">
+                  <span className="text-white font-semibold">0 Credits Available</span>
+                </div>
+                <h2 className="text-2xl font-bold text-white mb-4">
+                  🎯 Unlock Your Passion Discovery Journey
+                </h2>
+                <p className="text-gray-300 mb-4">
+                  Purchase credits to access AI-powered conversations that help you discover your true passions.
+                </p>
+                <ul className="text-gray-300 mb-6 text-left max-w-md mx-auto space-y-2">
+                  <li className="flex items-start">
+                    <span className="text-green-400 mr-2">✓</span>
+                    <span>1 Credit = 1 Complete Passion Discovery Session</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-400 mr-2">✓</span>
+                    <span>Personalized AI-guided conversation</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-400 mr-2">✓</span>
+                    <span>Credits never expire</span>
+                  </li>
+                </ul>
+                <BuyButton />
+              </>
+            )}
           </div>
         </div>
 
