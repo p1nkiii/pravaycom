@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PassionAI - Discover Your True Passion",
+  title: "Pravay - Discover Your True Passion",
   description: "Find your passion through intelligent AI conversations. Discover what truly drives you and unlock your potential.",
 };
 
