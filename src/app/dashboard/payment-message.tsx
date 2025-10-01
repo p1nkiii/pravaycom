@@ -1,11 +1,12 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 export default function PaymentMessage() {
   const searchParams = useSearchParams()
   const payment = searchParams.get('payment')
+  const router = useRouter()
   const [show, setShow] = useState(true)
 
   useEffect(() => {
@@ -14,6 +15,16 @@ export default function PaymentMessage() {
       return () => clearTimeout(timer)
     }
   }, [payment])
+
+  // Redirect to /dashboard (without query) after 2s when payment was successful
+  useEffect(() => {
+    if (payment === 'success') {
+      const redirectTimer = setTimeout(() => {
+        router.replace('/dashboard')
+      }, 2000)
+      return () => clearTimeout(redirectTimer)
+    }
+  }, [payment, router])
 
   if (!payment || !show) return null
 

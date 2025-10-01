@@ -1,48 +1,22 @@
+import HeroVanishInput from '@/components/HeroVanishInput'
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-800">PassionAI</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <a href="/login" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">
-                Sign In
-              </a>
-              <a href="/login" className="bg-gray-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-700 transition-colors">
-                Get Started
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
-              Discover Your
-              <span className="block text-gray-600">True Passion</span>
+              Pravay
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Through intelligent AI conversations, we help you uncover what truly drives you. 
-              Find your purpose, unlock your potential, and start living the life you were meant to live.
+            Where purpose begins.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/signup" 
-                className="bg-gray-800 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-700 transition-colors"
-              >
-                Start Your Journey
-              </a>
-              <a 
-                href="#how-it-works" 
-                className="border-2 border-gray-800 text-gray-800 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors"
-              >
+            <HeroVanishInput />
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+              <a href="#how-it-works" className="border-2 border-gray-800 text-gray-800 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors">
                 Learn More
               </a>
             </div>

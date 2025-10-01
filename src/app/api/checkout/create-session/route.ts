@@ -15,19 +15,24 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
+    // For now, sell a fixed credit pack of 1 via STRIPE_PRICE_ID
     const creditsToPurchase = 1
-    
+
+    const origin = request.headers.get('origin') || ''
+
+
     const session = await stripe.checkout.sessions.create({
-      customer_email: user.email,
-      client_reference_id: user.id,
-      line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
       mode: 'payment',
-      success_url: `${request.headers.get('origin')}/dashboard?payment=success`,
-      cancel_url: `${request.headers.get('origin')}/dashboard?payment=cancelled`,
+      line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
+      success_url: `${origin}/dashboard?payment=success`,
+      cancel_url: `${origin}/dashboard?payment=cancelled`,
+      // Pass user identifiers for webhook mapping
+      client_reference_id: user.id,
+      customer_email: user.email ?? undefined,
       metadata: {
         user_id: user.id,
         user_email: user.email || '',
-        credits_purchased: creditsToPurchase.toString(),
+        credits_purchased: String(creditsToPurchase),
       },
     })
 

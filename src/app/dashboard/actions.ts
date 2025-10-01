@@ -15,6 +15,60 @@ export async function startTest() {
     redirect('/login')
   }
 
+  // Fetch current credits
+  const { data: profile } = await supabase
+    .from('user_profiles')
+    .select('credits')
+    .eq('id', user.id)
+    .single()
+
+  const currentCredits = profile?.credits ?? 0
+
+  // Guard: require at least 1 credit
+  if (currentCredits < 1) {
+    redirect('/dashboard?payment=required')
+  }
+
+  // Optimistic decrement to avoid race conditions
+  const { data: afterDecrement } = await supabase
+    .from('user_profiles')
+    .update({
+      credits: currentCredits - 1,
+      updated_at: new Date().toISOString(),
+    })
+    .eq('id', user.id)
+    .eq('credits', currentCredits)
+    .select('credits')
+
+  // If no row was updated (credits changed meanwhile), re-check
+  if (!afterDecrement || afterDecrement.length === 0) {
+    const { data: recheck } = await supabase
+      .from('user_profiles')
+      .select('credits')
+      .eq('id', user.id)
+      .single()
+
+    if (!recheck || (recheck.credits ?? 0) < 1) {
+      redirect('/dashboard?payment=required')
+    }
+
+    // Try one more time with the latest value
+    const nextCredits = recheck.credits
+    const { data: afterSecondTry } = await supabase
+      .from('user_profiles')
+      .update({
+        credits: nextCredits - 1,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', user.id)
+      .eq('credits', nextCredits)
+      .select('credits')
+
+    if (!afterSecondTry || afterSecondTry.length === 0) {
+      redirect('/dashboard?payment=required')
+    }
+  }
+
   // Insert a new entry into the passion table with initial AI message
   const initialChat = [
     {
@@ -35,6 +89,22 @@ export async function startTest() {
 
   if (error) {
     console.error('Error creating passion entry:', error)
+    // Attempt to refund the credit on failure
+    const { data: latest } = await supabase
+      .from('user_profiles')
+      .select('credits')
+      .eq('id', user.id)
+      .single()
+
+    const creditsNow = latest?.credits ?? 0
+    await supabase
+      .from('user_profiles')
+      .update({
+        credits: creditsNow + 1,
+        updated_at: new Date().toISOString(),
+      })
+      .eq('id', user.id)
+
     throw new Error('Failed to start test')
   }
 
