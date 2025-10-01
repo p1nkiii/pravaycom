@@ -16,9 +16,9 @@ export default function PaymentMessage() {
     }
   }, [payment])
 
-  // Redirect to /dashboard (without query) after 2s when payment was successful
+  // Redirect to /dashboard (without query) after 2s when payment was successful or cancelled
   useEffect(() => {
-    if (payment === 'success') {
+    if (payment === 'success' || payment === 'cancelled') {
       const redirectTimer = setTimeout(() => {
         router.replace('/dashboard')
       }, 2000)
