@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 import {
   Navbar,
   NavBody,
@@ -33,9 +34,9 @@ export default function AppHeader() {
     <header className="w-full">
       <Navbar className="top-0">
         <NavBody>
-          <a href="/" className="relative z-20 mr-2 flex items-center space-x-2 px-2 py-1 text-sm font-medium text-black">
+          <Link href="/" className="relative z-20 mr-2 flex items-center space-x-2 px-2 py-1 text-sm font-medium text-black">
             <span className="text-xl font-bold text-gray-900">Pravay</span>
-          </a>
+          </Link>
           <NavItems items={items} />
           <div className="relative z-20 hidden items-center gap-2 lg:flex">
             <NavbarButton href="/login" variant="secondary">Sign in</NavbarButton>
@@ -45,9 +46,9 @@ export default function AppHeader() {
 
         <MobileNav>
           <MobileNavHeader>
-            <a href="/" className="relative z-20 mr-2 flex items-center space-x-2 px-2 py-1 text-sm font-medium text-black">
+            <Link href="/" className="relative z-20 mr-2 flex items-center space-x-2 px-2 py-1 text-sm font-medium text-black">
               <span className="text-lg font-bold text-gray-900">PassionAI</span>
-            </a>
+            </Link>
             <MobileNavToggle isOpen={isOpen} onClick={() => setIsOpen((v) => !v)} />
           </MobileNavHeader>
           <MobileNavMenu isOpen={isOpen} onClose={() => setIsOpen(false)}>

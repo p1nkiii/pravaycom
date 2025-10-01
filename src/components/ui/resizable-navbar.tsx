@@ -192,7 +192,6 @@ export const MobileNavMenu = ({
   children,
   className,
   isOpen,
-  onClose,
 }: MobileNavMenuProps) => {
   return (
     <AnimatePresence>
@@ -233,6 +232,7 @@ export const NavbarLogo = () => {
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="https://assets.aceternity.com/logo-dark.png"
         alt="logo"

@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
   let rawBody = ''
   try {
     rawBody = await request.text()
-  } catch (e) {
+  } catch {
     return NextResponse.json({ error: 'Failed to read request body' }, { status: 400 })
   }
   const signature = request.headers.get('stripe-signature')

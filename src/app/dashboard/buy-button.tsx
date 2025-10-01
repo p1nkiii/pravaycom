@@ -43,7 +43,7 @@ export default function BuyButton() {
           Loading...
         </span>
       ) : (
-        '💳 Buy 1 Credit - $10'
+        '💳 Buy 1 Credit'
       )}
     </button>
   )
