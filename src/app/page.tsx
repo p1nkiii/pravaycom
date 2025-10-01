@@ -29,14 +29,14 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-8">
-              You&apos;re not lazy.
+              Name 3 things you&apos;re really good at.
             </h2>
             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-6">
-              You&apos;re just not doing what you&apos;re meant to do.
+              Can&apos;t answer? Neither could I.
             </p>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Most people spend years drifting—jumping between jobs, trying new hobbies, hoping something will finally click. 
-              The problem isn&apos;t you. It&apos;s that no one ever helped you discover what truly drives you.
+              I was never the expert at anything. Always starting things, then stopping. Half-assing everything because nothing felt right.
+              But deep down, I wanted something to be known for—something people wouldn&apos;t mess with me on.
             </p>
           </div>
         </div>
@@ -47,22 +47,83 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-8">
-              We built this for you.
+              So I built Pravay.
             </h2>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-6">
-              Traditional career tests give you generic labels. Self-help books tell you to &quot;follow your passion&quot; 
-              without showing you how to find it.
+              I spent hours going back and forth with AI, correcting it, trying to find my actual passion. 
+              It was messy. There was no tool that just guided me through it properly.
             </p>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Pravay uses AI to have real conversations with you—asking the right questions, 
-              identifying patterns you&apos;ve missed, and uncovering what actually makes you come alive.
+              Pravay is what I wish existed—AI that asks you the right questions, tailored to you. 
+              Like talking to a therapist who actually gets it. Takes 3 minutes. No generic labels. Just real answers.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Video Demo Section */}
+      {/* How It Works Section */}
       <section className="py-32 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+              How it works
+            </h2>
+            <p className="text-xl text-gray-600">
+              3 steps. 3 minutes. Start taking action.
+            </p>
+          </div>
+
+          <div className="space-y-16">
+            {/* Step 1 */}
+            <div className="flex items-start gap-6">
+              <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                1
+              </div>
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-800 mb-3">
+                  Have a real conversation
+                </h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Talk to AI that actually guides you. No guessing. Just answer honestly and let it lead you to what matters.
+                </p>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="flex items-start gap-6">
+              <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                2
+              </div>
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-800 mb-3">
+                  Get your top 3 passions
+                </h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Based on your conversation, discover 3 specific passion areas that actually fit you—not generic career labels.
+                </p>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="flex items-start gap-6">
+              <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center text-xl font-bold">
+                3
+              </div>
+              <div>
+                <h3 className="text-2xl font-semibold text-gray-800 mb-3">
+                  Take action with a real plan
+                </h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Get an actionable plan to test which passion is actually yours and how to get started. Because knowing is useless without action.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Demo Section */}
+      <section className="py-32 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-8">
@@ -89,16 +150,16 @@ export default function Home() {
       <section className="py-32 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-            Stop drifting. Start living.
+            You owe it to yourself.
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
-            Your purpose is waiting. Let&apos;s find it together.
+            Stop wasting time on things that don&apos;t matter. Find what you actually burn for. It only takes 3 minutes.
           </p>
           <a 
-            href="/login" 
+            href="/signup" 
             className="bg-white text-gray-900 px-12 py-5 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-block"
           >
-            Begin Your Journey
+            Start Now
           </a>
         </div>
       </section>

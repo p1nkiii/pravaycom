@@ -19,7 +19,7 @@ export default async function LoginPage({
         <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
           <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-white p-4 md:rounded-2xl md:p-8">
             <h2 className="text-xl font-bold text-gray-800">
-              Welcome to PassionAI
+              Welcome to Pravay
             </h2>
             <p className="mt-2 max-w-sm text-sm text-gray-600">
               Sign in to start discovering your true passion through AI conversations
@@ -90,15 +90,6 @@ export default async function LoginPage({
               </p>
             </div>
           </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-gray-600">
-              Ready to discover your passion?{' '}
-              <Link href="/" className="text-gray-800 font-medium hover:underline">
-                Learn more about PassionAI
-              </Link>
-            </p>
-          </div>
         </div>
       </section>
 
@@ -107,7 +98,7 @@ export default async function LoginPage({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center">
             <p className="text-gray-600">
-              © 2024 PassionAI. All rights reserved.
+              © 2025 Pravay. All rights reserved.
             </p>
           </div>
         </div>

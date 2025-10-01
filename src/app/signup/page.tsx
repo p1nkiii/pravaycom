@@ -7,22 +7,6 @@ import Link from 'next/link'
 export default function SignupPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/" className="text-2xl font-bold text-gray-800">PassionAI</Link>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Link href="/" className="text-gray-600 hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium">
-                Back to Home
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Signup Form Section */}
       <section className="py-20">
         <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,7 +15,7 @@ export default function SignupPage() {
               Create Your Account
             </h2>
             <p className="mt-2 max-w-sm text-sm text-gray-600">
-              Join PassionAI and start discovering your true passion through AI conversations
+              Join Pravay and start discovering your true passion through AI conversations
             </p>
 
             <form className="my-8" action={signup}>
@@ -54,7 +38,7 @@ export default function SignupPage() {
                   placeholder="25" 
                   type="number" 
                   required
-                  min={13}
+                  min={0}
                   max={120}
                 />
               </LabelInputContainer>
@@ -115,15 +99,6 @@ export default function SignupPage() {
               </p>
             </div>
           </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-gray-600">
-              Ready to discover your passion?{' '}
-              <Link href="/" className="text-gray-800 font-medium hover:underline">
-                Learn more about PassionAI
-              </Link>
-            </p>
-          </div>
         </div>
       </section>
 
@@ -132,7 +107,7 @@ export default function SignupPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center">
             <p className="text-gray-600">
-              © 2024 PassionAI. All rights reserved.
+              © 2025 Pravay. All rights reserved.
             </p>
           </div>
         </div>
