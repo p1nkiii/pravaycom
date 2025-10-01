@@ -29,14 +29,14 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-8">
-              You're not lazy.
+              You&apos;re not lazy.
             </h2>
             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-6">
-              You're just not doing what you're meant to do.
+              You&apos;re just not doing what you&apos;re meant to do.
             </p>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
               Most people spend years drifting—jumping between jobs, trying new hobbies, hoping something will finally click. 
-              The problem isn't you. It's that no one ever helped you discover what truly drives you.
+              The problem isn&apos;t you. It&apos;s that no one ever helped you discover what truly drives you.
             </p>
           </div>
         </div>
@@ -50,12 +50,12 @@ export default function Home() {
               We built this for you.
             </h2>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-6">
-              Traditional career tests give you generic labels. Self-help books tell you to "follow your passion" 
+              Traditional career tests give you generic labels. Self-help books tell you to &quot;follow your passion&quot; 
               without showing you how to find it.
             </p>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
               Pravay uses AI to have real conversations with you—asking the right questions, 
-              identifying patterns you've missed, and uncovering what actually makes you come alive.
+              identifying patterns you&apos;ve missed, and uncovering what actually makes you come alive.
             </p>
           </div>
         </div>
@@ -92,7 +92,7 @@ export default function Home() {
             Stop drifting. Start living.
           </h2>
           <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
-            Your purpose is waiting. Let's find it together.
+            Your purpose is waiting. Let&apos;s find it together.
           </p>
           <a 
             href="/login" 
