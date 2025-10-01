@@ -21,8 +21,6 @@ export default function AppHeader() {
   const items = [
     { name: 'Home', link: '/' },
     { name: 'How it works', link: '/#how-it-works' },
-    { name: 'Features', link: '/#features' },
-    { name: 'Dashboard', link: '/dashboard' },
   ]
 
   // Hide header on dashboard and passion pages
@@ -39,15 +37,15 @@ export default function AppHeader() {
           </Link>
           <NavItems items={items} />
           <div className="relative z-20 hidden items-center gap-2 lg:flex">
-            <NavbarButton href="/login" variant="secondary">Sign in</NavbarButton>
-            <NavbarButton href="/login" variant="dark">Get Started</NavbarButton>
+            <NavbarButton href="/login" variant="dark">Sign in</NavbarButton>
+ 
           </div>
         </NavBody>
 
         <MobileNav>
           <MobileNavHeader>
             <Link href="/" className="relative z-20 mr-2 flex items-center space-x-2 px-2 py-1 text-sm font-medium text-black">
-              <span className="text-lg font-bold text-gray-900">PassionAI</span>
+              <span className="text-lg font-bold text-gray-900">Pravay</span>
             </Link>
             <MobileNavToggle isOpen={isOpen} onClick={() => setIsOpen((v) => !v)} />
           </MobileNavHeader>
@@ -59,8 +57,7 @@ export default function AppHeader() {
                 </a>
               ))}
               <div className="mt-2 flex gap-2">
-                <NavbarButton href="/login" as="a" className="flex-1">Sign in</NavbarButton>
-                <NavbarButton href="/login" as="a" variant="dark" className="flex-1">Get Started</NavbarButton>
+                <NavbarButton href="/login" as="a" variant="dark" className="flex-1">Sign in</NavbarButton>
               </div>
             </nav>
           </MobileNavMenu>

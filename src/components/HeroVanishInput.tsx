@@ -5,12 +5,12 @@ import { PlaceholdersAndVanishInput } from '@/components/ui/placeholders-and-van
 export default function HeroVanishInput() {
 
   const placeholders = [
-    'I feel energized when I…',
-    'I love spending time on…',
-    "People say I'm great at…",
-    'I deeply care about…',
-    'I lose track of time when…',
-    "I'd love to explore…",
+    "I don't know what I'm good at…",
+    "I feel lost and don't know where to start…",
+    "I'm drifting through life without direction…",
+    "I want to find something that matters…",
+    "I feel stuck and need to discover my path…",
+    "I'm searching for what makes me come alive…",
   ]
 
   return (
