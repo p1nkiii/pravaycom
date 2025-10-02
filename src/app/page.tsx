@@ -25,6 +25,24 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
+        {/* Scroll Down Arrow */}
+        <motion.a
+          href="#how-it-works"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400 hover:text-gray-800 transition-colors cursor-pointer"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </motion.div>
+        </motion.a>
       </section>
 
       {/* The Problem Section */}
