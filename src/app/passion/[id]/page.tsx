@@ -39,28 +39,20 @@ export default async function PassionIdPage({ params }: PassionPageProps) {
   const chatMessages = Array.isArray(passion.chat) ? passion.chat : []
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation - Sticky at top */}
-      <nav className="border-b border-gray-200 sticky top-0 z-10 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-800">Pravay</h1>
-            </div>
-            <div className="flex items-center">
-              <a 
-                href="/dashboard" 
-                className="text-gray-600 hover:text-gray-800 transition-colors"
-              >
-                ← Back to Dashboard
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <div className="h-screen bg-white flex flex-col overflow-hidden">
+      {/* Top Bar */}
+      <div className="flex justify-between items-center px-8 py-5 border-b border-gray-200">
+        <h1 className="text-2xl font-bold text-gray-800">Pravay</h1>
+        <a 
+          href="/dashboard" 
+          className="text-gray-600 hover:text-gray-800 text-sm font-medium transition-colors"
+        >
+          Back to Dashboard
+        </a>
+      </div>
 
       {/* Main Content - Full Height Chat */}
-      <main className="h-[calc(100vh-4rem)]">
+      <div className="flex-1 overflow-hidden">
         <ClientChat 
           initialMessages={chatMessages} 
           passionId={id}
@@ -75,8 +67,7 @@ export default async function PassionIdPage({ params }: PassionPageProps) {
             existingPlan={passion.plan}
           />
         )}
-      </main>
-
+      </div>
     </div>
   )
 }

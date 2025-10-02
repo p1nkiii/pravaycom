@@ -61,14 +61,14 @@ export default function PlanModal({ isOpen, onClose, passionId, chatMessages, ex
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden">
+    <div className="fixed inset-0 backdrop-blur-md bg-white/30 flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl border border-gray-300">
         {/* Header */}
         <div className="flex justify-between items-center p-6 border-b border-gray-200">
           <h2 className="text-2xl font-bold text-gray-800">Your Passion Plan</h2>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 text-2xl"
+            className="text-gray-500 hover:text-gray-700 text-3xl leading-none"
           >
             ×
           </button>
@@ -98,7 +98,7 @@ export default function PlanModal({ isOpen, onClose, passionId, chatMessages, ex
           )}
 
           {plan && !isLoading && (
-            <div className="prose max-w-none">
+            <div className="prose max-w-none text-gray-800">
               <div dangerouslySetInnerHTML={{ __html: plan.replace(/\n/g, '<br>') }} />
             </div>
           )}

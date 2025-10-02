@@ -1,9 +1,10 @@
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import { startTest } from './actions'
-import ConversationCard from './conversation-card'
+import Link from 'next/link'
 import BuyButton from './buy-button'
 import PaymentMessage from './payment-message'
+import PlanViewer from './plan-viewer'
 
 export default async function DashboardPage() {
   const supabase = await createClient()
@@ -40,187 +41,150 @@ export default async function DashboardPage() {
   // Get user's first name from user metadata
   const firstName = user.user_metadata?.first_name || user.email?.split('@')[0] || 'User'
 
+  const totalConversations = passions?.length || 0
+  const completedConversations = passions?.filter(p => p.done).length || 0
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-800">Pravay</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <form action="/auth/logout" method="post">
-                <button 
-                  type="submit"
-                  className="bg-gray-800 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-700 transition-colors"
-                >
-                  Sign Out
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <div className="h-screen bg-white flex flex-col overflow-hidden">
+      {/* Top Bar */}
+      <div className="flex justify-between items-center px-8 py-5 border-b border-gray-200">
+        <h1 className="text-2xl font-bold text-gray-800">Pravay</h1>
+        <form action="/auth/logout" method="post">
+          <button 
+            type="submit"
+            className="text-gray-600 hover:text-gray-800 text-sm font-medium transition-colors"
+          >
+            Sign Out
+          </button>
+        </form>
+      </div>
 
-      {/* Main Dashboard Content */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <PaymentMessage />
+      <PaymentMessage />
 
-        {/* Welcome Section */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
-            Welcome back, {firstName}!
-          </h1>
-          <p className="text-gray-600">
-            Continue your passion discovery journey or start a new conversation.
-          </p>
-        </div>
-
-        {/* Quick Stats */}
-        {passions && passions.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                </div>
-                <div className="ml-4">
-                  <p className="text-2xl font-bold text-gray-800">{passions.length}</p>
-                  <p className="text-sm text-gray-600">Total Conversations</p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div className="ml-4">
-                  <p className="text-2xl font-bold text-gray-800">
-                    {passions.filter(p => p.done).length}
-                  </p>
-                  <p className="text-sm text-gray-600">Completed</p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white border border-gray-200 rounded-lg p-6">
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
-                  <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div className="ml-4">
-                  <p className="text-2xl font-bold text-gray-800">
-                    {passions.filter(p => !p.done).length}
-                  </p>
-                  <p className="text-sm text-gray-600">In Progress</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Start New Conversation + Buy Credits (always show buy, disable start if no credits) */}
-        <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg p-8 mb-8">
-          <div className="text-center">
-            <div className="inline-flex items-center bg-white/10 rounded-full px-4 py-2 mb-4">
-              <span className="text-white font-semibold">{credits} {credits === 1 ? 'Credit' : 'Credits'} Available</span>
-            </div>
-
-            <h2 className="text-2xl font-bold text-white mb-2">
-              {hasCredits ? 'Ready to discover more about yourself?' : '🎯 Unlock Your Passion Discovery Journey'}
+      {/* Main Dashboard */}
+      <div className="flex-1 overflow-y-auto">
+        <div className="max-w-6xl mx-auto px-8 py-10">
+          
+          {/* Header Section */}
+          <div className="mb-10">
+            <h2 className="text-4xl font-bold text-gray-800 mb-2">
+              Welcome back, {firstName}.
             </h2>
-            <p className="text-gray-300 mb-6">
-              {hasCredits
-                ? 'Start a new conversation with our AI to explore your passions and interests.'
-                : 'Purchase credits to access AI-powered conversations that help you discover your true passions.'}
+            <p className="text-lg text-gray-600">
+              Continue your passion discovery journey.
             </p>
+          </div>
 
-            {!hasCredits && (
-              <ul className="text-gray-300 mb-6 text-left max-w-md mx-auto space-y-2">
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-2">✓</span>
-                  <span>1 Credit = 1 Complete Passion Discovery Session</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-2">✓</span>
-                  <span>Personalized AI-guided conversation</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-2">✓</span>
-                  <span>Credits never expire</span>
-                </li>
-              </ul>
-            )}
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+            <div className="border border-gray-200 rounded-lg p-5">
+              <div className="text-3xl font-bold text-gray-800 mb-1">{credits}</div>
+              <div className="text-sm text-gray-600">Credits Available</div>
+            </div>
+            <div className="border border-gray-200 rounded-lg p-5">
+              <div className="text-3xl font-bold text-gray-800 mb-1">{totalConversations}</div>
+              <div className="text-sm text-gray-600">Total Conversations</div>
+            </div>
+            <div className="border border-gray-200 rounded-lg p-5">
+              <div className="text-3xl font-bold text-gray-800 mb-1">{completedConversations}</div>
+              <div className="text-sm text-gray-600">Completed</div>
+            </div>
+          </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* Action Section */}
+          <div className="border border-gray-200 rounded-lg p-8 mb-10">
+            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+              {hasCredits ? 'Ready to discover more?' : 'Get started with credits'}
+            </h3>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <form action={startTest}>
                 <button
                   type="submit"
                   disabled={!hasCredits}
-                  aria-disabled={!hasCredits}
-                  title={!hasCredits ? 'You need credits to start a conversation' : undefined}
-                  className="bg-white text-gray-800 px-8 py-3 rounded-lg text-lg font-semibold transition-colors disabled:opacity-60 disabled:cursor-not-allowed hover:bg-gray-100"
+                  className="bg-gray-800 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-gray-800 w-full sm:w-auto"
                 >
                   Start New Conversation
                 </button>
               </form>
-
               <BuyButton />
             </div>
-
-            {!hasCredits && (
-              <p className="text-gray-300 mt-4">You have 0 credits. Buy credits to get started.</p>
-            )}
           </div>
-        </div>
 
-        {/* Recent Conversations */}
-        {passions && passions.length > 0 && (
-          <div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Recent Conversations</h2>
-            <div className="grid gap-4">
-              {passions.slice(0, 5).map((passion, index) => (
-                <ConversationCard 
-                  key={passion.id}
-                  passion={passion}
-                  index={index}
-                />
-              ))}
+          {/* Recent Conversations */}
+          {passions && passions.length > 0 && (
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-bold text-gray-800">Recent Conversations</h3>
+                <div className="text-sm text-gray-600">
+                  {passions.length} {passions.length === 1 ? 'conversation' : 'conversations'}
+                </div>
+              </div>
+              
+              <div className="space-y-3">
+                {passions.slice(0, 6).map((passion) => (
+                  <div key={passion.id} className="border border-gray-200 rounded-lg p-5 hover:border-gray-800 transition-all group">
+                    <div className="flex items-start justify-between gap-4">
+                      <Link 
+                        href={`/passion/${passion.id}`}
+                        className="flex-1 min-w-0"
+                      >
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="text-sm text-gray-600">
+                            {new Date(passion.created_at).toLocaleDateString('en-US', { 
+                              month: 'short', 
+                              day: 'numeric',
+                              year: 'numeric'
+                            })}
+                          </div>
+                          {passion.done && (
+                            <div className="inline-flex items-center gap-1 text-xs text-green-600 font-medium bg-green-50 px-2 py-1 rounded">
+                              ✓ Complete
+                            </div>
+                          )}
+                        </div>
+                        <div className="text-gray-800 font-medium group-hover:text-gray-900 line-clamp-2">
+                          {passion.initial_answer || 'Passion Discovery Conversation'}
+                        </div>
+                      </Link>
+                      
+                      <div className="flex items-center gap-3">
+                        {passion.plan && (
+                          <PlanViewer 
+                            plan={passion.plan}
+                            conversationTitle={passion.initial_answer || 'Passion Discovery Conversation'}
+                          />
+                        )}
+                        <Link href={`/passion/${passion.id}`}>
+                          <div className="text-gray-400 group-hover:text-gray-600 transition-colors">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* Empty State */}
-        {(!passions || passions.length === 0) && (
-          <div className="text-center py-16">
-            <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg className="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
+          {/* Empty State */}
+          {(!passions || passions.length === 0) && (
+            <div className="border border-gray-200 rounded-lg p-12 text-center">
+              <div className="text-gray-400 mb-4">
+                <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">No conversations yet</h3>
+              <p className="text-gray-600">
+                Start your first conversation to begin discovering your passions.
+              </p>
             </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">No conversations yet</h3>
-            <p className="text-gray-600 mb-6">Start your first conversation to begin discovering your passions!</p>
-          </div>
-        )}
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center">
-            <p className="text-gray-600">
-              © 2024 PassionAI. All rights reserved.
-            </p>
-          </div>
+          )}
         </div>
-      </footer>
+      </div>
     </div>
   )
 }

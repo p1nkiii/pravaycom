@@ -19,12 +19,12 @@ export default function PlanButton({ passionId, chatMessages, existingPlan }: Pl
 
   return (
     <>
-      <div className="fixed bottom-20 right-8 z-20">
+      <div className="fixed bottom-8 right-8 z-20">
         <button 
           onClick={() => setIsModalOpen(true)}
-          className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold shadow-lg transition-colors"
+          className="bg-gray-800 hover:bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold shadow-lg transition-colors"
         >
-          Access Plan
+          View Plan
         </button>
       </div>
 
