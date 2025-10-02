@@ -111,7 +111,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg md:text-xl text-gray-600 leading-relaxed"
             >
-              This could&apos;ve been way easier. AI should just listen and guide you through finding passion.
+              This could&apos;ve been way easier. AI should just have a real conversation with you and guide you through finding your passion.
             </motion.p>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
