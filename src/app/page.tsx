@@ -1,4 +1,7 @@
+'use client'
+
 import HeroVanishInput from '@/components/HeroVanishInput'
+import { motion } from 'motion/react'
 
 export default function Home() {
   return (
@@ -28,16 +31,43 @@ export default function Home() {
       <section id="how-it-works" className="py-32 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-8">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl font-bold text-gray-800 mb-8"
+            >
               Name 3 things you&apos;re really good at.
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-6">
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-6"
+            >
               Can&apos;t answer? Neither could I.
-            </p>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              I was never the expert at anything. Always starting things, then stopping. Half-assing everything because nothing felt right.
-              But deep down, I wanted something to be known for—something people wouldn&apos;t mess with me on.
-            </p>
+            </motion.p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl text-gray-600 leading-relaxed"
+            >
+              I was ok at lots of things, but never known for anything specific. I&apos;d start projects fired up, then lose interest after a while. 
+              Couldn&apos;t stick with anything. I was just drifting through life with nothing to aim for.
+            </motion.p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-lg md:text-xl text-gray-600 leading-relaxed mt-4"
+            >
+              But deep down, I wanted something to be known for. Something people wouldn&apos;t mess with me on.
+            </motion.p>
           </div>
         </div>
       </section>
@@ -45,18 +75,53 @@ export default function Home() {
       {/* Why We Built This Section */}
       <section className="py-32 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-8">
-              So I built Pravay.
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-6">
-              I spent hours going back and forth with AI, correcting it, trying to find my actual passion. 
-              It was messy. There was no tool that just guided me through it properly.
-            </p>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Pravay is what I wish existed—AI that asks you the right questions, tailored to you. 
-              Like talking to a therapist who actually gets it. Takes 3 minutes. No generic labels. Just real answers.
-            </p>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold text-gray-800 mb-16 text-center"
+          >
+            This shouldn&apos;t be this hard.
+          </motion.h2>
+          
+          <div className="space-y-8 text-left max-w-3xl mx-auto">
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-lg md:text-xl text-gray-600 leading-relaxed"
+            >
+              When I finally decided to change something, I went online looking for help. Found nothing useful. Just outdated personality tests or stuff that took forever.
+            </motion.p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl text-gray-600 leading-relaxed"
+            >
+              So I tried ChatGPT. Spent hours going back and forth, correcting it. Eventually found something I could work with.
+            </motion.p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-lg md:text-xl text-gray-600 leading-relaxed"
+            >
+              This could&apos;ve been way easier. AI should just listen and guide you through finding passion.
+            </motion.p>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-lg md:text-xl text-gray-800 font-medium leading-relaxed"
+            >
+              So I built Pravay for everyone like me who doesn&apos;t know what to do and just wants something they actually burn for.
+            </motion.p>
           </div>
         </div>
       </section>
@@ -65,17 +130,35 @@ export default function Home() {
       <section className="py-32 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl font-bold text-gray-800 mb-4"
+            >
               How it works
-            </h2>
-            <p className="text-xl text-gray-600">
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-xl text-gray-600"
+            >
               3 steps. 3 minutes. Start taking action.
-            </p>
+            </motion.p>
           </div>
 
           <div className="space-y-16">
             {/* Step 1 */}
-            <div className="flex items-start gap-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="flex items-start gap-6"
+            >
               <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center text-xl font-bold">
                 1
               </div>
@@ -87,10 +170,16 @@ export default function Home() {
                   Talk to AI that actually guides you. No guessing. Just answer honestly and let it lead you to what matters.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Step 2 */}
-            <div className="flex items-start gap-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex items-start gap-6"
+            >
               <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center text-xl font-bold">
                 2
               </div>
@@ -102,10 +191,16 @@ export default function Home() {
                   Based on your conversation, discover 3 specific passion areas that actually fit you—not generic career labels.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Step 3 */}
-            <div className="flex items-start gap-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex items-start gap-6"
+            >
               <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center text-xl font-bold">
                 3
               </div>
@@ -117,7 +212,7 @@ export default function Home() {
                   Get an actionable plan to test which passion is actually yours and how to get started. Because knowing is useless without action.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -149,18 +244,34 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-32 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold text-white mb-8"
+          >
             You owe it to yourself.
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed"
+          >
             Stop wasting time on things that don&apos;t matter. Find what you actually burn for. It only takes 3 minutes.
-          </p>
-          <a 
+          </motion.p>
+          <motion.a 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             href="/signup" 
             className="bg-white text-gray-900 px-12 py-5 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-block"
           >
             Start Now
-          </a>
+          </motion.a>
         </div>
       </section>
 

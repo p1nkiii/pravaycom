@@ -18,10 +18,7 @@ export default function AppHeader() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
 
-  const items = [
-    { name: 'Home', link: '/' },
-    { name: 'How it works', link: '/#how-it-works' },
-  ]
+  const items: { name: string; link: string }[] = []
 
   // Hide header on dashboard and passion pages
   if (pathname?.startsWith('/dashboard') || pathname?.startsWith('/passion')) {
