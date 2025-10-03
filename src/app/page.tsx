@@ -50,7 +50,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
@@ -59,7 +59,7 @@ export default function Home() {
               Name 3 things you&apos;re really good at.
             </motion.h2>
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -68,7 +68,7 @@ export default function Home() {
               Can&apos;t answer? Neither could I.
             </motion.p>
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -78,7 +78,7 @@ export default function Home() {
               Couldn&apos;t stick with anything. I was just drifting through life with nothing to aim for.
             </motion.p>
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -94,7 +94,7 @@ export default function Home() {
       <section className="py-32 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
@@ -105,7 +105,7 @@ export default function Home() {
           
           <div className="space-y-8 text-left max-w-3xl mx-auto">
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -114,7 +114,7 @@ export default function Home() {
               When I finally decided to change something, I went online looking for help. Found nothing useful. Just outdated personality tests or stuff that took forever.
             </motion.p>
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -123,7 +123,7 @@ export default function Home() {
               So I tried ChatGPT. Spent hours going back and forth, correcting it. Eventually found something I could work with.
             </motion.p>
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -132,7 +132,7 @@ export default function Home() {
               This could&apos;ve been way easier. AI should just have a real conversation with you and guide you through finding your passion.
             </motion.p>
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -149,7 +149,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
@@ -158,7 +158,7 @@ export default function Home() {
               How it works
             </motion.h2>
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -171,7 +171,7 @@ export default function Home() {
           <div className="space-y-16">
             {/* Step 1 */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
@@ -192,7 +192,7 @@ export default function Home() {
 
             {/* Step 2 */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -213,7 +213,7 @@ export default function Home() {
 
             {/* Step 3 */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -263,7 +263,7 @@ export default function Home() {
       <section className="py-32 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
@@ -272,7 +272,7 @@ export default function Home() {
             You owe it to yourself.
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -281,7 +281,7 @@ export default function Home() {
             Stop wasting time on things that don&apos;t matter. Find what you actually burn for. It only takes 3 minutes.
           </motion.p>
           <motion.a 
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
