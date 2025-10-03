@@ -25,10 +25,12 @@ export default function PlanModal({ isOpen, onClose, passionId, chatMessages, ex
     setError('')
 
     try {
+      const csrf = document.cookie.split('; ').find((c) => c.startsWith('csrfToken='))?.split('=')[1] || ''
       const response = await fetch('/api/passion/generate-plan', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'x-csrf-token': csrf
         },
         body: JSON.stringify({
           passionId,
@@ -98,8 +100,8 @@ export default function PlanModal({ isOpen, onClose, passionId, chatMessages, ex
           )}
 
           {plan && !isLoading && (
-            <div className="prose max-w-none text-gray-800">
-              <div dangerouslySetInnerHTML={{ __html: plan.replace(/\n/g, '<br>') }} />
+            <div className="prose max-w-none text-gray-800 whitespace-pre-wrap break-words">
+              {plan}
             </div>
           )}
         </div>

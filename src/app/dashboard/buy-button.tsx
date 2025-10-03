@@ -8,9 +8,10 @@ export default function BuyButton() {
   const handleCheckout = async () => {
     try {
       setLoading(true)
+      const csrf = document.cookie.split('; ').find((c) => c.startsWith('csrfToken='))?.split('=')[1] || ''
       const response = await fetch('/api/checkout/create-session', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'x-csrf-token': csrf },
       })
 
       const data = await response.json()

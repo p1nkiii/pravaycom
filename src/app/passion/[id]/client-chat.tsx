@@ -47,6 +47,7 @@ export default function ClientChat({ initialMessages, passionId, isCompleted }: 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+            'x-csrf-token': document.cookie.split('; ').find((c) => c.startsWith('csrfToken='))?.split('=')[1] || ''
         },
         body: JSON.stringify({
           passionId,

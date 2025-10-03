@@ -8,6 +8,13 @@ const openai = new OpenAI({
 
 export async function POST(request: NextRequest) {
   try {
+    // Basic CSRF check: header must match cookie value
+    const csrfHeader = request.headers.get('x-csrf-token') || ''
+    const csrfCookie = request.cookies.get('csrfToken')?.value || ''
+    if (!csrfHeader || !csrfCookie || csrfHeader !== csrfCookie) {
+      return NextResponse.json({ error: 'Invalid CSRF token' }, { status: 403 })
+    }
+
     const supabase = await createClient()
     
     // Get the current user

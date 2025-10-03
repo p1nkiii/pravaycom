@@ -48,8 +48,8 @@ export default function PlanViewer({ plan, conversationTitle }: PlanViewerProps)
 
             {/* Content */}
             <div className="p-6 overflow-y-auto max-h-[calc(90vh-140px)]">
-              <div className="prose max-w-none text-gray-800">
-                <div dangerouslySetInnerHTML={{ __html: plan.replace(/\n/g, '<br>') }} />
+              <div className="prose max-w-none text-gray-800 whitespace-pre-wrap break-words">
+                {plan}
               </div>
             </div>
           </div>

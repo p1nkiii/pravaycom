@@ -8,6 +8,13 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 export async function POST(request: NextRequest) {
   try {
+    // CSRF check
+    const csrfHeader = request.headers.get('x-csrf-token') || ''
+    const csrfCookie = request.cookies.get('csrfToken')?.value || ''
+    if (!csrfHeader || !csrfCookie || csrfHeader !== csrfCookie) {
+      return NextResponse.json({ error: 'Invalid CSRF token' }, { status: 403 })
+    }
+
     const supabase = await createClient()
     const { data: { user } } = await supabase.auth.getUser()
 
@@ -18,14 +25,16 @@ export async function POST(request: NextRequest) {
     // For now, sell a fixed credit pack of 1 via STRIPE_PRICE_ID
     const creditsToPurchase = 1
 
-    const origin = request.headers.get('origin') || ''
-
+    const baseUrl = process.env.APP_BASE_URL || ''
+    if (!baseUrl) {
+      return NextResponse.json({ error: 'Server misconfiguration' }, { status: 500 })
+    }
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       line_items: [{ price: process.env.STRIPE_PRICE_ID!, quantity: 1 }],
-      success_url: `${origin}/dashboard?payment=success`,
-      cancel_url: `${origin}/dashboard?payment=cancelled`,
+      success_url: `${baseUrl}/dashboard?payment=success`,
+      cancel_url: `${baseUrl}/dashboard?payment=cancelled`,
       // Pass user identifiers for webhook mapping
       client_reference_id: user.id,
       customer_email: user.email ?? undefined,
