@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import ReactMarkdown from 'react-markdown'
 
 interface PlanViewerProps {
   plan: string
@@ -48,8 +49,8 @@ export default function PlanViewer({ plan, conversationTitle }: PlanViewerProps)
 
             {/* Content */}
             <div className="p-6 overflow-y-auto max-h-[calc(90vh-140px)]">
-              <div className="prose max-w-none text-gray-800 whitespace-pre-wrap break-words">
-                {plan}
+              <div className="prose prose-lg max-w-none text-gray-800">
+                <ReactMarkdown>{plan}</ReactMarkdown>
               </div>
             </div>
           </div>

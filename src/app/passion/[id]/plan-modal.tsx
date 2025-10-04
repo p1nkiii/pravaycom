@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import ReactMarkdown from 'react-markdown'
 
 interface Message {
   role: 'user' | 'assistant'
@@ -100,8 +101,8 @@ export default function PlanModal({ isOpen, onClose, passionId, chatMessages, ex
           )}
 
           {plan && !isLoading && (
-            <div className="prose max-w-none text-gray-800 whitespace-pre-wrap break-words">
-              {plan}
+            <div className="prose prose-lg max-w-none text-gray-800">
+              <ReactMarkdown>{plan}</ReactMarkdown>
             </div>
           )}
         </div>
