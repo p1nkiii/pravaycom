@@ -11,9 +11,11 @@ interface ClientChatProps {
   initialMessages: Message[]
   passionId: string
   isCompleted: boolean
+  onCompletionChange?: (completed: boolean) => void
+  onMessagesChange?: (messages: Message[]) => void
 }
 
-export default function ClientChat({ initialMessages, passionId, isCompleted }: ClientChatProps) {
+export default function ClientChat({ initialMessages, passionId, isCompleted, onCompletionChange, onMessagesChange }: ClientChatProps) {
   const [messages, setMessages] = useState<Message[]>(initialMessages)
   const [inputMessage, setInputMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -38,7 +40,9 @@ export default function ClientChat({ initialMessages, passionId, isCompleted }: 
     }
 
     // Add user message immediately
-    setMessages(prev => [...prev, userMessage])
+    const updatedMessages = [...messages, userMessage]
+    setMessages(updatedMessages)
+    onMessagesChange?.(updatedMessages)
     setInputMessage('')
     setIsLoading(true)
 
@@ -63,11 +67,16 @@ export default function ClientChat({ initialMessages, passionId, isCompleted }: 
       
       // Add AI response if available
       if (data.success && data.aiMessage) {
-        setMessages(prev => [...prev, data.aiMessage])
+        setMessages(prev => {
+          const newMessages = [...prev, data.aiMessage]
+          onMessagesChange?.(newMessages)
+          return newMessages
+        })
         
         // Check if conversation is complete in real-time
         if (data.aiMessage.content.includes("Thank you for sharing so much with me. I have a clear idea of what might suit you perfectly.")) {
           setIsChatCompleted(true)
+          onCompletionChange?.(true)
         }
       }
     } catch (error) {

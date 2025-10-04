@@ -1,7 +1,6 @@
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
-import ClientChat from './client-chat'
-import PlanButton from './plan-button'
+import ChatWrapper from './chat-wrapper'
 
 interface PassionPageProps {
   params: Promise<{
@@ -53,20 +52,12 @@ export default async function PassionIdPage({ params }: PassionPageProps) {
 
       {/* Main Content - Full Height Chat */}
       <div className="flex-1 overflow-hidden">
-        <ClientChat 
+        <ChatWrapper 
           initialMessages={chatMessages} 
           passionId={id}
           isCompleted={passion.done}
+          existingPlan={passion.plan}
         />
-        
-        {/* Access Plan Button - Shows when conversation is done */}
-        {passion.done && (
-          <PlanButton 
-            passionId={id}
-            chatMessages={chatMessages}
-            existingPlan={passion.plan}
-          />
-        )}
       </div>
     </div>
   )
