@@ -246,7 +246,7 @@ export default function Home() {
           {/* Video */}
           <div className="relative aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
             <iframe
-              src="https://www.loom.com/embed/eb13b172dfc24342a6234808d3ccceca?sid=f35e434b-b46f-4204-823a-eb99ac4c74c3"
+              src="https://www.loom.com/embed/eb13b172dfc24342a6234808d3ccceca?sid=f35e434b-b46f-4204-823a-eb99ac4c74c3&hide_share=true&hideEmbedTopBar=true&hide_title=true&hide_owner=true"
               className="absolute inset-0 w-full h-full"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
