@@ -19,7 +19,7 @@ function buildCsp(): string {
     imgSrc,
     connectSrc,
     "worker-src 'self' blob:",
-    "frame-src https://*.stripe.com",
+    "frame-src https://*.stripe.com https://www.loom.com https://loom.com https://*.loom.com",
     "font-src 'self' data:",
     "base-uri 'self'",
     "form-action 'self'",
