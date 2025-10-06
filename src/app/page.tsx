@@ -243,18 +243,16 @@ export default function Home() {
               See it in action
             </h2>
           </div>
-          {/* Video Placeholder */}
+          {/* Video */}
           <div className="relative aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-                <p className="text-gray-600 text-lg">Video coming soon</p>
-              </div>
-            </div>
+            <video 
+              className="absolute inset-0 w-full h-full object-cover"
+              controls
+              preload="metadata"
+            >
+              <source src="/actual.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </section>
