@@ -69,11 +69,11 @@ export async function startTest() {
     }
   }
 
-  // Insert a new entry into the passion table with initial AI message
-  const initialChat = [
+  // Insert a new entry into the passion table with initial situation assessment message
+  const initialAssessmentChat = [
     {
       role: "assistant",
-      content: "Hi! I'm here to help you discover your passion through conversation. I'll ask you some personalized questions based on your responses. Are you looking to discover your passion for career purposes, hobbies, or just general life direction?"
+      content: "Hi there! I'm excited to help you on this journey of self-discovery. Before we dive into exploring your passions, I'd love to understand where you are in life right now. What are you currently doing these days? Are you working, studying, or in a phase of transition?"
     }
   ]
 
@@ -81,14 +81,18 @@ export async function startTest() {
     .from('passion')
     .insert({
       user_id: user.id,
-      chat: initialChat,
+      stage: 'situation_assessment',
+      assessment_chat: initialAssessmentChat,
+      assessment_started_at: new Date().toISOString(),
+      chat: [],
       done: false,
-      plan: null // or empty string, depending on your preference
+      plan: null
     })
     .select()
 
   if (error) {
     console.error('Error creating passion entry:', error)
+    console.error('Error details:', JSON.stringify(error, null, 2))
     // Attempt to refund the credit on failure
     const { data: latest } = await supabase
       .from('user_profiles')
@@ -105,9 +109,9 @@ export async function startTest() {
       })
       .eq('id', user.id)
 
-    throw new Error('Failed to start test')
+    throw new Error(`Failed to start test: ${error.message || 'Unknown error'}`)
   }
 
-  // Redirect to the specific passion page
-  redirect(`/passion/${data[0].id}`)
+  // Redirect to the situation assessment page
+  redirect(`/situation-assessment/${data[0].id}`)
 }

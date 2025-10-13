@@ -151,7 +151,7 @@ export default async function DashboardPage() {
                         {passion.plan && (
                           <PlanViewer 
                             plan={passion.plan}
-                            conversationTitle={passion.initial_answer || 'Passion Discovery Conversation'}
+                            conversationId={passion.id}
                           />
                         )}
                         <Link href={`/passion/${passion.id}`}>

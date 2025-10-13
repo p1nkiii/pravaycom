@@ -26,82 +26,100 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const { passionId, chatMessages } = await request.json()
+    const { passionId } = await request.json()
 
-    if (!passionId || !chatMessages) {
+    if (!passionId) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    // Convert chat messages to OpenAI format
-    const openaiMessages = chatMessages.map((msg: { role: string; content: string }) => ({
-      role: msg.role === 'assistant' ? 'assistant' : 'user',
+    // Fetch the conversation with BOTH assessment and passion chats
+    const { data: conversation, error: fetchError } = await supabase
+      .from('passion')
+      .select('assessment_chat, chat')
+      .eq('id', passionId)
+      .eq('user_id', user.id)
+      .single()
+
+    if (fetchError || !conversation) {
+      return NextResponse.json({ error: 'Conversation not found' }, { status: 404 })
+    }
+
+    // Parse both conversations
+    const assessmentChat = Array.isArray(conversation.assessment_chat) ? conversation.assessment_chat : []
+    const passionChat = Array.isArray(conversation.chat) ? conversation.chat : []
+
+    // Convert assessment chat to OpenAI format
+    const assessmentMessages = assessmentChat.map((msg: any) => ({
+      role: (msg.role === 'assistant' ? 'assistant' : 'user') as 'user' | 'assistant',
       content: msg.content
     }))
 
-    // System prompt for passion plan generation
-    const systemPrompt = `You are a passion discovery expert. Generate a comprehensive passion analysis with this exact structure:
+    // Convert passion chat to OpenAI format
+    const passionMessages = passionChat.map((msg: any) => ({
+      role: (msg.role === 'assistant' ? 'assistant' : 'user') as 'user' | 'assistant',
+      content: msg.content
+    }))
 
-## 🎯 **YOUR PRIMARY PASSION: [Specific Name]**
+    // Combine both conversations (assessment first, then passion)
+    const allMessages = [...assessmentMessages, ...passionMessages]
 
-**Why This Fits You Perfectly:**
-- Start: "Based on our conversation, you really enjoy [observation]. Here's why [Passion] is your match:"
-- **Personal Connection:** List 4-5 specific things from conversation
-- **Deep Analysis:** 2-3 paragraphs on WHY this aligns with their energy, values, competence, curiosity
-- **What This Means:** Personal insight about their nature and fulfillment
+    // System prompt for passion overview generation
+    const systemPrompt = `You are a passion discovery expert. Based on BOTH the situation assessment conversation AND the passion discovery conversation, identify the user's top 3 passions.
 
-**Your Action Plan:**
-- **Week 1 - Basics:** 2-3 specific beginner activities with exact resources
-- **Week 2-3 - Projects:** 2-3 specific small projects with clear instructions  
-- **Week 4 - Decision:** "After 3 weeks, you'll know if this is for you"
+For each passion, provide:
 
-**How to Test:**
-- **Week 1:** "Try [activity] and see if you feel energized"
-- **Week 2-3:** "Do [project] and notice if you lose track of time"
-- **Success Signs:** 3-4 specific indicators this passion is right
+1. **Name**: Specific and clear (e.g., "Game Development" not "Technology")
 
-**Resources:**
-- **Learn:** Specific platforms, courses, books, YouTube channels
-- **Practice:** Communities, forums, local groups
-- **Tools:** Software, equipment, materials (budget-friendly options)
+2. **What It Is**: 2-3 sentences explaining what this passion actually involves. Keep it simple and clear.
 
-## 🌟 **YOUR SECONDARY PASSION: [Name]**
-**Why This Could Fit:** 1-2 paragraphs + 2-3 conversation connections
-**Quick Test:** "Try [activity] for a week"
-**Start Here:** 1-2 specific resources
+3. **Why It Fits You**: 3-4 paragraphs explaining why this passion matches them personally. Include:
+   - How it connects to their interests and energy (from passion chat)
+   - How it matches their skills or background
+   - How it fits their situation and constraints (from assessment chat)
+   - Personal insight about what this means for them
+   - Reference specific things they mentioned, but don't use direct quotes
 
-## ⭐ **YOUR THIRD PASSION: [Name]**  
-**Why This Might Work:** 1-2 paragraphs + 2-3 conversation connections
-**Quick Test:** "Try [activity] and see how it feels"
-**Start Here:** 1-2 specific resources
+IMPORTANT:
+- Use simple, everyday language
+- Explain clearly why this matches based on what they shared in both conversations
+- Make it personal and encouraging
+- Be realistic about their situation (time, energy, constraints from assessment)
 
-## 🚀 **Your Next Steps:**
-- Start with primary passion (strongest match)
-- If not right after 3 weeks, try secondary
-- Keep third as backup
-- You'll know within weeks if something energizes you
+Output ONLY valid JSON in this exact format:
+{
+  "passions": [
+    {
+      "name": "Passion Name Here",
+      "whatItIs": "2-3 sentences here...",
+      "whyItFits": "3-4 paragraphs here with quotes and connections..."
+    },
+    {
+      "name": "Second Passion",
+      "whatItIs": "...",
+      "whyItFits": "..."
+    },
+    {
+      "name": "Third Passion",
+      "whatItIs": "...",
+      "whyItFits": "..."
+    }
+  ]
+}
 
-**Closing:** Tailor to their intent (career/hobby/life direction)
+Do NOT include any text outside the JSON.`
 
-**Guidelines:**
-- Be SPECIFIC: "Software Development" not "Technology"
-- Use "you" and "your" frequently
-- Conversational, encouraging tone
-- Make passions actionable and specific
-
-**Tone:** Like a trusted friend giving personal insights. Comprehensive and detailed.`
-
-    // Call OpenAI API
+    // Call OpenAI API with both conversations
     const completion = await openai.chat.completions.create({
       model: "gpt-4",
       messages: [
         { role: "system", content: systemPrompt },
-        ...openaiMessages
+        ...allMessages
       ],
       temperature: 0.7,
       max_tokens: 2000
     })
 
-    const generatedPlan = completion.choices[0]?.message?.content || "Unable to generate plan at this time."
+    const generatedPlan = completion.choices[0]?.message?.content || '{"passions":[]}'
 
     // Update the passion entry with the generated plan
     const { error: updateError } = await supabase

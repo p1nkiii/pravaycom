@@ -9,17 +9,21 @@ interface Message {
 
 interface ClientChatProps {
   initialMessages: Message[]
-  passionId: string
-  isCompleted: boolean
-  onCompletionChange?: (completed: boolean) => void
-  onMessagesChange?: (messages: Message[]) => void
+  conversationId: string
+  onAssessmentComplete?: () => void
+  isAssessmentComplete?: boolean
 }
 
-export default function ClientChat({ initialMessages, passionId, isCompleted, onCompletionChange, onMessagesChange }: ClientChatProps) {
+export default function ClientChat({ 
+  initialMessages, 
+  conversationId, 
+  onAssessmentComplete,
+  isAssessmentComplete = false
+}: ClientChatProps) {
   const [messages, setMessages] = useState<Message[]>(initialMessages)
   const [inputMessage, setInputMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [isChatCompleted, setIsChatCompleted] = useState(isCompleted)
+  const [isComplete, setIsComplete] = useState(isAssessmentComplete)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
   const scrollToBottom = () => {
@@ -30,14 +34,9 @@ export default function ClientChat({ initialMessages, passionId, isCompleted, on
     scrollToBottom()
   }, [messages])
 
-  // Notify parent of message changes (after state update completes)
-  useEffect(() => {
-    onMessagesChange?.(messages)
-  }, [messages, onMessagesChange])
-
   const sendMessage = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!inputMessage.trim() || isLoading || isChatCompleted) return
+    if (!inputMessage.trim() || isLoading || isComplete) return
 
     const userMessage: Message = {
       role: 'user',
@@ -47,19 +46,18 @@ export default function ClientChat({ initialMessages, passionId, isCompleted, on
     // Add user message immediately
     const updatedMessages = [...messages, userMessage]
     setMessages(updatedMessages)
-    onMessagesChange?.(updatedMessages)
     setInputMessage('')
     setIsLoading(true)
 
     try {
-      const response = await fetch('/api/passion/chat', {
+      const response = await fetch('/api/situation-assessment/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-            'x-csrf-token': document.cookie.split('; ').find((c) => c.startsWith('csrfToken='))?.split('=')[1] || ''
+          'x-csrf-token': document.cookie.split('; ').find((c) => c.startsWith('csrfToken='))?.split('=')[1] || ''
         },
         body: JSON.stringify({
-          passionId,
+          conversationId,
           message: userMessage.content
         })
       })
@@ -74,10 +72,10 @@ export default function ClientChat({ initialMessages, passionId, isCompleted, on
       if (data.success && data.aiMessage) {
         setMessages(prev => [...prev, data.aiMessage])
         
-        // Check if conversation is complete in real-time
-        if (data.aiMessage.content.includes("Thank you for sharing so much with me. I have a clear idea of what might suit you perfectly.")) {
-          setIsChatCompleted(true)
-          onCompletionChange?.(true)
+        // Check if assessment is complete
+        if (data.assessmentComplete) {
+          setIsComplete(true)
+          onAssessmentComplete?.()
         }
       }
     } catch (error) {
@@ -93,7 +91,7 @@ export default function ClientChat({ initialMessages, passionId, isCompleted, on
     <div className="h-full flex flex-col bg-white">
       {/* Chat Messages Area - Scrollable */}
       <div className="flex-1 p-8 overflow-y-auto">
-        <div className="space-y-6">
+        <div className={`space-y-6 ${isComplete ? 'pb-32' : ''}`}>
           {messages.map((message, index) => (
             <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div className={`max-w-xl ${
@@ -128,19 +126,9 @@ export default function ClientChat({ initialMessages, passionId, isCompleted, on
       </div>
 
       {/* Input Area - Fixed at bottom */}
-      <div className="border-t border-gray-200 bg-white">
-        <div className="p-8">
-          {isChatCompleted ? (
-            <div className="text-center py-4">
-              <div className="inline-flex items-center space-x-2 text-gray-800 border border-gray-800 px-4 py-2 rounded-lg">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span className="font-medium">Conversation Complete</span>
-              </div>
-              <p className="text-gray-600 text-sm mt-3">View your passion plan below.</p>
-            </div>
-          ) : (
+      {!isComplete && (
+        <div className="border-t border-gray-200 bg-white">
+          <div className="p-8">
             <form onSubmit={sendMessage} className="flex gap-3">
               <input
                 type="text"
@@ -159,9 +147,10 @@ export default function ClientChat({ initialMessages, passionId, isCompleted, on
                 {isLoading ? 'Sending...' : 'Send'}
               </button>
             </form>
-          )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
+

@@ -2,13 +2,13 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import ChatWrapper from './chat-wrapper'
 
-interface PassionPageProps {
+interface AssessmentPageProps {
   params: Promise<{
     id: string
   }>
 }
 
-export default async function PassionIdPage({ params }: PassionPageProps) {
+export default async function SituationAssessmentPage({ params }: AssessmentPageProps) {
   const supabase = await createClient()
   
   const {
@@ -22,31 +22,35 @@ export default async function PassionIdPage({ params }: PassionPageProps) {
   // Await params in Next.js 15
   const { id } = await params
 
-  // Fetch the specific passion entry
-  const { data: passion, error } = await supabase
+  // Fetch the specific conversation entry
+  const { data: conversation, error } = await supabase
     .from('passion')
     .select('*')
     .eq('id', id)
     .eq('user_id', user.id)
     .single()
 
-  if (error || !passion) {
+  if (error || !conversation) {
     redirect('/dashboard')
   }
 
-  // If still in situation assessment, redirect to that page
-  if (passion.stage === 'situation_assessment') {
-    redirect(`/situation-assessment/${id}`)
+  // If stage is not situation_assessment, redirect to passion page
+  if (conversation.stage === 'passion_discovery') {
+    redirect(`/passion/${id}`)
   }
 
   // Parse chat messages from JSON
-  const chatMessages = Array.isArray(passion.chat) ? passion.chat : []
+  const chatMessages = Array.isArray(conversation.assessment_chat) ? conversation.assessment_chat : []
+  const isAssessmentDone = conversation.assessment_done || false
 
   return (
     <div className="h-screen bg-white flex flex-col overflow-hidden">
       {/* Top Bar */}
       <div className="flex justify-between items-center px-8 py-5 border-b border-gray-200">
-        <h1 className="text-2xl font-bold text-gray-800">Pravay</h1>
+        <div>
+          <h1 className="text-2xl font-bold text-gray-800">Pravay</h1>
+          <p className="text-xs text-gray-500 mt-1">Situation Assessment</p>
+        </div>
         <a 
           href="/dashboard" 
           className="text-gray-600 hover:text-gray-800 text-sm font-medium transition-colors"
@@ -59,11 +63,11 @@ export default async function PassionIdPage({ params }: PassionPageProps) {
       <div className="flex-1 overflow-hidden">
         <ChatWrapper 
           initialMessages={chatMessages} 
-          passionId={id}
-          isCompleted={passion.done}
-          existingPlan={passion.plan}
+          conversationId={id}
+          isAssessmentComplete={isAssessmentDone}
         />
       </div>
     </div>
   )
 }
+

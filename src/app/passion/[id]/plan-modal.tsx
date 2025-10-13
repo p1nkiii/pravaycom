@@ -34,8 +34,7 @@ export default function PlanModal({ isOpen, onClose, passionId, chatMessages, ex
           'x-csrf-token': csrf
         },
         body: JSON.stringify({
-          passionId,
-          chatMessages
+          passionId
         })
       })
 

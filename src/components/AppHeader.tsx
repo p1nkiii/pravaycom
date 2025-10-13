@@ -20,8 +20,8 @@ export default function AppHeader() {
 
   const items: { name: string; link: string }[] = []
 
-  // Hide header on dashboard and passion pages
-  if (pathname?.startsWith('/dashboard') || pathname?.startsWith('/passion')) {
+  // Hide header on dashboard, passion, situation assessment, and plan pages
+  if (pathname?.startsWith('/dashboard') || pathname?.startsWith('/passion') || pathname?.startsWith('/situation-assessment') || pathname?.startsWith('/plan')) {
     return null
   }
 
