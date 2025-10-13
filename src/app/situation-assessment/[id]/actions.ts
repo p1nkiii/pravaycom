@@ -41,7 +41,7 @@ export async function completeAssessment(conversationId: string) {
   const assessmentChat = Array.isArray(conversation.assessment_chat) ? conversation.assessment_chat : []
 
   // Generate summary of assessment using OpenAI
-  const conversationText = assessmentChat.map((msg: any) => `${msg.role}: ${msg.content}`).join('\n')
+  const conversationText = assessmentChat.map((msg: { role: string; content: string }) => `${msg.role}: ${msg.content}`).join('\n')
   
   const summaryPrompt = `Summarize this situation assessment conversation in 2-3 concise sentences covering:
 1. User's current life situation (work/study/transition)

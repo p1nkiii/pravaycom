@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
     let planData
     try {
       planData = JSON.parse(conversation.plan)
-    } catch (e) {
+    } catch {
       return NextResponse.json({ error: 'Invalid plan data' }, { status: 400 })
     }
 
@@ -78,13 +78,13 @@ export async function POST(request: NextRequest) {
     const passionChat = Array.isArray(conversation.chat) ? conversation.chat : []
 
     // Convert assessment chat to OpenAI format
-    const assessmentMessages = assessmentChat.map((msg: any) => ({
+    const assessmentMessages = assessmentChat.map((msg: { role: string; content: string }) => ({
       role: (msg.role === 'assistant' ? 'assistant' : 'user') as 'user' | 'assistant',
       content: msg.content
     }))
 
     // Convert passion chat to OpenAI format
-    const passionMessages = passionChat.map((msg: any) => ({
+    const passionMessages = passionChat.map((msg: { role: string; content: string }) => ({
       role: (msg.role === 'assistant' ? 'assistant' : 'user') as 'user' | 'assistant',
       content: msg.content
     }))
@@ -203,8 +203,8 @@ Do NOT include any text outside the JSON.`
     let detailedPlan
     try {
       detailedPlan = JSON.parse(detailedPlanJson)
-    } catch (e) {
-      console.error('Error parsing detailed plan JSON:', e)
+    } catch (error) {
+      console.error('Error parsing detailed plan JSON:', error)
       return NextResponse.json({ error: 'Failed to parse plan' }, { status: 500 })
     }
 

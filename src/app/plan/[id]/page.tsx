@@ -12,7 +12,15 @@ interface Passion {
   name: string
   whatItIs: string
   whyItFits: string
-  detailedPlan?: any
+  detailedPlan?: {
+    testingPlan?: unknown
+    successIndicators?: unknown
+    obstacles?: unknown
+    action24Hour?: unknown
+    resources?: unknown
+    realityCheck?: unknown
+    decisionFramework?: unknown
+  }
 }
 
 export default async function PlanPage({ params }: PlanPageProps) {

@@ -7,7 +7,7 @@ interface Passion {
   name: string
   whatItIs: string
   whyItFits: string
-  detailedPlan?: any
+  detailedPlan?: unknown
 }
 
 interface PassionCardProps {

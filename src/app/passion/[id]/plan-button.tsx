@@ -14,7 +14,7 @@ interface PlanButtonProps {
   existingPlan?: string
 }
 
-export default function PlanButton({ passionId, chatMessages, existingPlan }: PlanButtonProps) {
+export default function PlanButton({ passionId, existingPlan }: PlanButtonProps) {
   const [isGenerating, setIsGenerating] = useState(false)
   const router = useRouter()
 

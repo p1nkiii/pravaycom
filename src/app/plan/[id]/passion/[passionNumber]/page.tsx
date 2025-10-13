@@ -182,7 +182,7 @@ export default async function PassionDetailPage({ params }: PassionDetailPagePro
 
                 <div className="border border-red-200 bg-red-50 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-red-800 mb-3">
-                    ❌ Signs This ISN'T Your Passion
+                    ❌ Signs This ISN&apos;T Your Passion
                   </h3>
                   <ul className="space-y-2">
                     {detailedPlan.successIndicators.negative?.map((signal: string, idx: number) => (
@@ -200,12 +200,12 @@ export default async function PassionDetailPage({ params }: PassionDetailPagePro
           {/* Obstacles */}
           <section>
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              ⚠️ Obstacles You'll Face
+              ⚠️ Obstacles You&apos;ll Face
             </h2>
             
             {detailedPlan.obstacles && (
               <div className="space-y-4">
-                {detailedPlan.obstacles.map((obstacle: any, idx: number) => (
+                {detailedPlan.obstacles.map((obstacle: { name: string; why: string; solution: string; action: string }, idx: number) => (
                   <div key={idx} className="border border-gray-200 rounded-lg p-6">
                     <h3 className="text-lg font-semibold text-gray-800 mb-2">
                       {obstacle.name}

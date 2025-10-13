@@ -16,7 +16,7 @@ interface PlanModalProps {
   existingPlan?: string
 }
 
-export default function PlanModal({ isOpen, onClose, passionId, chatMessages, existingPlan }: PlanModalProps) {
+export default function PlanModal({ isOpen, onClose, passionId, existingPlan }: PlanModalProps) {
   const [plan, setPlan] = useState(existingPlan || '')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')

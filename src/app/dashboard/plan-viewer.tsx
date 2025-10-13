@@ -7,7 +7,7 @@ interface PlanViewerProps {
   conversationId: string
 }
 
-export default function PlanViewer({ plan, conversationId }: PlanViewerProps) {
+export default function PlanViewer({ conversationId }: PlanViewerProps) {
   return (
     <Link
       href={`/plan/${conversationId}`}
