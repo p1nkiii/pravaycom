@@ -11,7 +11,7 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-800 mb-8">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-sky-500 mb-8">
               Pravay
             </h1>
             <p className="text-2xl md:text-3xl text-gray-600 mb-12 max-w-4xl mx-auto">
@@ -19,7 +19,7 @@ export default function Home() {
             </p>
             <HeroVanishInput />
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <a href="#how-it-works" className="bg-gray-800 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-900 transition-colors">
+              <a href="#how-it-works" className="bg-sky-400 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-sky-500 transition-colors">
                 Start Now
               </a>
             </div>
@@ -29,7 +29,7 @@ export default function Home() {
         {/* Scroll Down Arrow */}
         <motion.a
           href="#how-it-works"
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400 hover:text-gray-800 transition-colors cursor-pointer"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400 hover:text-sky-500 transition-colors cursor-pointer"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
@@ -46,116 +46,17 @@ export default function Home() {
       </section>
 
       {/* The Problem Section */}
-      <section id="how-it-works" className="py-32 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
             <motion.h2 
               initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-bold text-gray-800 mb-8"
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
             >
-              Name 3 things you&apos;re really good at.
-            </motion.h2>
-            <motion.p 
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-6"
-            >
-              Can&apos;t answer? Neither could I.
-            </motion.p>
-            <motion.p 
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-gray-600 leading-relaxed"
-            >
-              I was ok at lots of things, but never known for anything specific. I&apos;d start projects fired up, then lose interest after a while. 
-              Couldn&apos;t stick with anything. I was just drifting through life with nothing to aim for.
-            </motion.p>
-            <motion.p 
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg md:text-xl text-gray-600 leading-relaxed mt-4"
-            >
-              But deep down, I wanted something to be known for. Something people wouldn&apos;t mess with me on.
-            </motion.p>
-          </div>
-        </div>
-      </section>
-
-      {/* Why We Built This Section */}
-      <section className="py-32 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h2 
-            initial={false}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-gray-800 mb-16 text-center"
-          >
-            This shouldn&apos;t be this hard.
-          </motion.h2>
-          
-          <div className="space-y-8 text-left max-w-3xl mx-auto">
-            <motion.p 
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg md:text-xl text-gray-600 leading-relaxed"
-            >
-              When I finally decided to change something, I went online looking for help. Found nothing useful. Just outdated personality tests or stuff that took forever.
-            </motion.p>
-            <motion.p 
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-gray-600 leading-relaxed"
-            >
-              So I tried ChatGPT. Spent hours going back and forth, correcting it. Eventually found something I could work with.
-            </motion.p>
-            <motion.p 
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg md:text-xl text-gray-600 leading-relaxed"
-            >
-              This could&apos;ve been way easier. AI should just have a real conversation with you and guide you through finding your passion.
-            </motion.p>
-            <motion.p 
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg md:text-xl text-gray-800 font-medium leading-relaxed"
-            >
-              So I built Pravay for everyone like me who doesn&apos;t know what to do and just wants something they actually burn for.
-            </motion.p>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <motion.h2 
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-bold text-gray-800 mb-4"
-            >
-              How it works
+              Stuck, unfulfilled, or drifting through life?
             </motion.h2>
             <motion.p 
               initial={false}
@@ -164,118 +65,402 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-xl text-gray-600"
             >
-              3 steps. 3 minutes. Start taking action.
+              You&apos;re not alone. Here&apos;s what people tell us:
             </motion.p>
           </div>
 
-          <div className="space-y-16">
-            {/* Step 1 */}
-            <motion.div 
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Overwhelmed and stuck",
+                description: "So many options, no skills, everything seems hard. You don&apos;t know where to start, so you do nothing.",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                )
+              },
+              {
+                title: "Unfulfilled and drained",
+                description: "You work a job that lost its spark or never had one. You want something that actually excites you when you wake up.",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                )
+              },
+              {
+                title: "Start things, quit things",
+                description: "Try something new, lose interest, repeat. Drifting through life hoping something will just click.",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                )
+              }
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={false}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+              >
+                {/* Subtle background on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-sky-300 to-sky-400 opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+                
+                {/* Icon */}
+                <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-sky-300 to-sky-400 text-white mb-4 group-hover:scale-110 transition-all duration-300">
+                  {item.icon}
+                </div>
+                
+                {/* Content */}
+                <h3 className="relative text-xl font-bold text-gray-900 mb-3">
+                  {item.title}
+                </h3>
+                <p className="relative text-gray-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Solution Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <motion.h2 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            >
+              Have a real conversation with our AI
+            </motion.h2>
+            <motion.p 
               initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex items-start gap-6"
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
             >
-              <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center text-xl font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-3">
-                  Have a real conversation
-                </h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Talk to AI that actually guides you. No guessing. Just answer honestly and let it lead you to what matters.
-                </p>
-              </div>
-            </motion.div>
+              No forms, no multiple choice. Our AI asks questions, listens to your answers, and adapts the conversation to help you discover your passion.
+            </motion.p>
+          </div>
 
-            {/* Step 2 */}
-            <motion.div 
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex items-start gap-6"
-            >
-              <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center text-xl font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-3">
-                  Get your top 3 passions
-                </h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Based on your conversation, discover 3 specific passion areas that actually fit you—not generic career labels.
-                </p>
-              </div>
-            </motion.div>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              {[
+                {
+                  number: "01",
+                  title: "Talk about your situation",
+                  description: "Natural back-and-forth conversation about where you are in life, what you're looking for, and what's holding you back."
+                },
+                {
+                  number: "02",
+                  title: "Explore what excites you",
+                  description: "Answer questions that adapt to your responses. Dig into your values, strengths, and what naturally energizes you."
+                },
+                {
+                  number: "03",
+                  title: "Get 3 personalized matches",
+                  description: "Receive specific passion areas based on everything you shared, not generic test results."
+                },
+                {
+                  number: "04",
+                  title: "Get complete action plans",
+                  description: "Receive detailed roadmaps, 24 hour quick starts, success indicators, and curated resources. Everything you need to explore each passion."
+                }
+              ].map((step, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={false}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="flex gap-6"
+                >
+                  <div className="flex-shrink-0">
+                    <div className="text-5xl font-bold text-sky-200">{step.number}</div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
-            {/* Step 3 */}
-            <motion.div 
+            <motion.div
               initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex items-start gap-6"
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-gradient-to-br from-sky-500 to-sky-400 rounded-2xl p-12 text-white"
             >
-              <div className="flex-shrink-0 w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center text-xl font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-3">
-                  Take action with a real plan
-                </h3>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Get an actionable plan to test which passion is actually yours and how to get started. Because knowing is useless without action.
-                </p>
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold">What you get:</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Situation & passion assessments</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>3 personalized passion matches</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>4-week testing roadmap for each passion</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>24-hour action plan to start immediately</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Success indicators to know if it&apos;s right</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Curated resources and next steps</span>
+                  </li>
+                </ul>
+                
+                {/* Pricing */}
+                <div className="mt-8 pt-6 border-t border-white/20">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-5xl font-bold">$50</span>
+                    <span className="text-xl opacity-90">USD</span>
+                  </div>
+                  <p className="mt-2 text-white/80 text-sm">One-time payment. Complete access to all features.</p>
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Video Demo Section */}
-      <section className="py-32 bg-white">
+      {/* Features Section */}
+      <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-8">
-              See it in action
-            </h2>
+            <motion.h2 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            >
+              Built for real people with real lives
+            </motion.h2>
+            <motion.p
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-xl text-gray-600"
+            >
+              No endless courses. No vague advice. Just a practical path forward.
+            </motion.p>
           </div>
-          {/* Video */}
-          <div className="relative aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
-            <iframe
-              src="https://www.loom.com/embed/eb13b172dfc24342a6234808d3ccceca?sid=f35e434b-b46f-4204-823a-eb99ac4c74c3&hide_share=true&hideEmbedTopBar=true&hide_title=true&hide_owner=true"
-              className="absolute inset-0 w-full h-full"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Fast",
+                description: "Complete both assessments in under 30 minutes. Get your passion matches instantly.",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                ),
+                color: "from-sky-300 to-sky-400"
+              },
+              {
+                title: "Personalized",
+                description: "Every plan is tailored to your time, energy, and constraints. No generic advice.",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                ),
+                color: "from-sky-300 to-sky-400"
+              },
+              {
+                title: "Actionable",
+                description: "Clear next steps from day one. Know exactly what to do and when to do it.",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                  </svg>
+                ),
+                color: "from-sky-300 to-sky-400"
+              },
+              {
+                title: "Practical",
+                description: "4-week testing cycles fit into your actual life. No need to quit your job or disappear.",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                ),
+                color: "from-sky-300 to-sky-400"
+              },
+              {
+                title: "Clear outcomes",
+                description: "Know if you've found your passion or need to try the next one. No more wondering.",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                ),
+                color: "from-sky-300 to-sky-400"
+              },
+              {
+                title: "Multiple paths",
+                description: "Get 3 passion matches. If one doesn't work, you have 2 more to explore.",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                ),
+                color: "from-sky-300 to-sky-400"
+              }
+            ].map((feature, idx) => (
+              <motion.div
+                key={idx}
+                initial={false}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-transparent overflow-hidden"
+              >
+                {/* Gradient background on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
+                
+                {/* Icon */}
+                <div className={`relative inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br ${feature.color} text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  {feature.icon}
+                </div>
+                
+                {/* Content */}
+                <h3 className="relative text-xl font-bold text-gray-900 mb-3 group-hover:text-sky-600 transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="relative text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
+
+                {/* Decorative element */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-sky-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full -mr-16 -mt-16"></div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 bg-gray-900">
+      {/* Stats/Social Proof Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-12">
+            {[
+              {
+                stat: "No overthinking",
+                description: "Just conversation and action",
+                icon: (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                )
+              },
+              {
+                stat: "Proven process",
+                description: "Test, learn, decide",
+                icon: (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                  </svg>
+                )
+              },
+              {
+                stat: "Multiple shots",
+                description: "3 chances to find your fit",
+                icon: (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg>
+                )
+              }
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={false}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="text-center group"
+              >
+                {/* Icon */}
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-sky-100 text-sky-500 mb-4 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
+                  {item.icon}
+                </div>
+                
+                {/* Stat */}
+                <div className="text-4xl font-bold text-gray-900 mb-2 group-hover:text-sky-500 transition-colors duration-300">
+                  {item.stat}
+                </div>
+                
+                {/* Description */}
+                <p className="text-gray-600 text-sm">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-24 bg-sky-500">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <motion.h2 
             initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-8"
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
           >
-            You owe it to yourself.
+            You owe it to yourself
           </motion.h2>
           <motion.p 
             initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed"
+            className="text-xl text-white mb-12 leading-relaxed max-w-2xl mx-auto"
           >
-            Stop wasting time on things that don&apos;t matter. Find what you actually burn for. It only takes 3 minutes.
+            Your passion is waiting. The only question is: are you ready to find it?
           </motion.p>
           <motion.a 
             initial={false}
@@ -283,20 +468,27 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
             href="/signup" 
-            className="bg-white text-gray-900 px-12 py-5 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors inline-block"
+            className="bg-white text-sky-500 px-12 py-4 rounded-lg text-xl font-semibold hover:bg-gray-50 transition-colors inline-block"
           >
-            Start Now
+            Start Your Discovery
           </motion.a>
+          <p className="mt-6 text-white text-sm opacity-90">Takes less than 15 minutes</p>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-gray-600">
               © 2025 Pravay. All rights reserved.
             </p>
+            <a 
+              href="/impressum" 
+              className="text-gray-600 hover:text-sky-500 transition-colors text-sm"
+            >
+              Impressum
+            </a>
           </div>
         </div>
       </footer>

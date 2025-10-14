@@ -30,11 +30,11 @@ export default function AppHeader() {
       <Navbar className="top-0">
         <NavBody>
           <Link href="/" className="relative z-20 mr-2 flex items-center space-x-2 px-2 py-1 text-sm font-medium text-black">
-            <span className="text-xl font-bold text-gray-900">Pravay</span>
+            <span className="text-xl font-bold text-sky-400">Pravay</span>
           </Link>
           <NavItems items={items} />
           <div className="relative z-20 hidden items-center gap-2 lg:flex">
-            <NavbarButton href="/login" variant="dark">Sign in</NavbarButton>
+            <NavbarButton href="/login" variant="primary" className="!bg-sky-400 !text-white hover:!bg-sky-500">Sign in</NavbarButton>
  
           </div>
         </NavBody>
@@ -42,7 +42,7 @@ export default function AppHeader() {
         <MobileNav>
           <MobileNavHeader>
             <Link href="/" className="relative z-20 mr-2 flex items-center space-x-2 px-2 py-1 text-sm font-medium text-black">
-              <span className="text-lg font-bold text-gray-900">Pravay</span>
+              <span className="text-lg font-bold text-sky-400">Pravay</span>
             </Link>
             <MobileNavToggle isOpen={isOpen} onClick={() => setIsOpen((v) => !v)} />
           </MobileNavHeader>
