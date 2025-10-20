@@ -79,7 +79,7 @@ export default async function PassionPage() {
               />
               <button
                 type="submit"
-                className="bg-gray-800 text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-700 transition-colors"
+                className="bg-sky-500 text-white px-6 py-2 rounded-lg font-medium hover:bg-sky-600 transition-colors"
               >
                 Send
               </button>

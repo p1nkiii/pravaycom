@@ -154,7 +154,7 @@ export default function ClientChat({ initialMessages, passionId, isCompleted, on
               <button
                 type="submit"
                 disabled={isLoading || !inputMessage.trim()}
-                className="bg-gray-800 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                className="bg-sky-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-sky-600 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {isLoading ? 'Sending...' : 'Send'}
               </button>

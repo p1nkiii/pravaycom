@@ -33,7 +33,7 @@ export default function BuyButton() {
     <button
       onClick={handleCheckout}
       disabled={loading}
-      className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+      className="bg-gradient-to-r from-sky-500 to-sky-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:from-sky-600 hover:to-sky-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {loading ? (
         <span className="flex items-center">
