@@ -11,6 +11,7 @@ declare global {
 }
 
 export default function PassionTestPage() {
+  // Landing page for Google Ads
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - Optimized for Ads */}
