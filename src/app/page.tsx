@@ -128,6 +128,136 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How We Help Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <motion.h2 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            >
+              What if there was a better way?
+            </motion.h2>
+            <motion.p 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-xl text-gray-600"
+            >
+              Instead of endless searching, what if you could have a real conversation that actually understands you?
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <motion.div
+                initial={false}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="flex gap-6"
+              >
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center">
+                    <svg className="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Real conversation, not forms</h3>
+                  <p className="text-gray-600">No more multiple choice questions that don&apos;t capture who you really are. Just natural back-and-forth dialogue that adapts to your responses.</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={false}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="flex gap-6"
+              >
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center">
+                    <svg className="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Clear direction, not confusion</h3>
+                  <p className="text-gray-600">Get exactly 3 passion areas tailored to you. No more endless options or decision paralysis, just clear paths to explore.</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={false}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="flex gap-6"
+              >
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center">
+                    <svg className="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                    </svg>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Start exploring immediately</h3>
+                  <p className="text-gray-600">You'll know exactly what to do next. Get detailed roadmaps, 24-hour quick starts, and specific steps to begin exploring each passion right away.</p>
+                </div>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={false}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-gradient-to-br from-sky-50 to-white rounded-2xl p-8 border border-sky-100"
+            >
+              <div className="text-center">
+                <div className="w-16 h-16 bg-sky-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">The difference is in the approach</h3>
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  While others give you generic tests and vague advice, we have real conversations that dig into your values, strengths, and what naturally energizes you.
+                </p>
+                <div className="space-y-3 text-left">
+                  <div className="flex items-center gap-3">
+                    <svg className="w-5 h-5 text-sky-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-700">Personalized conversation that adapts to you</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <svg className="w-5 h-5 text-sky-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-700">3 specific passion matches, not endless options</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <svg className="w-5 h-5 text-sky-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-700">Immediate action plans you can start today</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Solution Section */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -158,7 +288,7 @@ export default function Home() {
                 {
                   number: "01",
                   title: "Talk about your situation",
-                  description: "Natural back-and-forth conversation about where you are in life, what you're looking for, and what's holding you back."
+                  description: "Share where you are in life, what you're looking for, and what's holding you back through an adaptive conversation."
                 },
                 {
                   number: "02",
@@ -173,7 +303,7 @@ export default function Home() {
                 {
                   number: "04",
                   title: "Get complete action plans",
-                  description: "Receive detailed roadmaps, 24 hour quick starts, success indicators, and curated resources. Everything you need to explore each passion."
+                  description: "Access detailed roadmaps, 24 hour quick starts, success indicators, and curated resources. Everything you need to explore each passion."
                 }
               ].map((step, idx) => (
                 <motion.div
@@ -250,7 +380,7 @@ export default function Home() {
                 {/* Pricing */}
                 <div className="mt-8 pt-6 border-t border-white/20">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-5xl font-bold">$50</span>
+                    <span className="text-5xl font-bold">$9.99</span>
                     <span className="text-xl opacity-90">USD</span>
                   </div>
                   <p className="mt-2 text-white/80 text-sm">One-time payment. Complete access to all features.</p>
@@ -289,7 +419,7 @@ export default function Home() {
             {[
               {
                 title: "Fast",
-                description: "Complete both assessments in under 30 minutes. Get your passion matches instantly.",
+                description: "Complete both assessments in less than 15 minutes. Get your passion matches instantly.",
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -380,66 +510,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats/Social Proof Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-12">
-            {[
-              {
-                stat: "No overthinking",
-                description: "Just conversation and action",
-                icon: (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                )
-              },
-              {
-                stat: "Proven process",
-                description: "Test, learn, decide",
-                icon: (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-                  </svg>
-                )
-              },
-              {
-                stat: "Multiple shots",
-                description: "3 chances to find your fit",
-                icon: (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
-                )
-              }
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={false}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="text-center group"
-              >
-                {/* Icon */}
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-sky-100 text-sky-500 mb-4 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
-                  {item.icon}
-                </div>
-                
-                {/* Stat */}
-                <div className="text-4xl font-bold text-gray-900 mb-2 group-hover:text-sky-500 transition-colors duration-300">
-                  {item.stat}
-                </div>
-                
-                {/* Description */}
-                <p className="text-gray-600 text-sm">
-                  {item.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Final CTA Section */}
       <section className="py-24 bg-sky-500">
