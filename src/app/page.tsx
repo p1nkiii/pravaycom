@@ -210,7 +210,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Start exploring immediately</h3>
-                  <p className="text-gray-600">You'll know exactly what to do next. Get detailed roadmaps, 24-hour quick starts, and specific steps to begin exploring each passion right away.</p>
+                  <p className="text-gray-600">You&apos;ll know exactly what to do next. Get detailed roadmaps, 24-hour quick starts, and specific steps to begin exploring each passion right away.</p>
                 </div>
               </motion.div>
             </div>
