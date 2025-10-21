@@ -258,6 +258,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Video Demo Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <motion.h2 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            >
+              See how it works
+            </motion.h2>
+            <motion.p 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-xl text-gray-600"
+            >
+              Watch a quick demo of the conversation in action
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial={false}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative rounded-2xl overflow-hidden shadow-2xl"
+          >
+            {/* Loom Video Embed */}
+            <div style={{ position: 'relative', paddingBottom: '64.86486486486486%', height: 0 }}>
+              <iframe 
+                src="https://www.loom.com/embed/91e16c087d464ccfb836f153d0320a8c?sid=15ee46c6-0857-45a4-8e3f-b407ce524baa&hideEmbedTopBar=true" 
+                frameBorder="0" 
+                webkitallowfullscreen="true"
+                mozallowfullscreen="true"
+                allowFullScreen 
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Solution Section */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
