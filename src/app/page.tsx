@@ -294,8 +294,6 @@ export default function Home() {
               <iframe 
                 src="https://www.loom.com/embed/91e16c087d464ccfb836f153d0320a8c?sid=15ee46c6-0857-45a4-8e3f-b407ce524baa&hideEmbedTopBar=true" 
                 frameBorder="0" 
-                webkitallowfullscreen="true"
-                mozallowfullscreen="true"
                 allowFullScreen 
                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
               />
