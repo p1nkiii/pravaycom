@@ -85,19 +85,6 @@ export default function SignupPage() {
                 </p>
               </div>
             </form>
-
-            <div className="mt-6 text-center">
-              <p className="text-sm text-gray-600">
-                By creating an account, you agree to our{' '}
-                <a href="#" className="text-gray-800 hover:underline">
-                  Terms of Service
-                </a>{' '}
-                and{' '}
-                <a href="#" className="text-gray-800 hover:underline">
-                  Privacy Policy
-                </a>
-              </p>
-            </div>
           </div>
         </div>
       </section>
