@@ -72,8 +72,8 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Overwhelmed and stuck",
-                description: "So many options, no skills, everything seems hard. You don&apos;t know where to start, so you do nothing.",
+                title: "Too many options",
+                description: "You like a lot of things but cannot make up your mind. But with so many possibilities, you do not know what to focus on.",
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -90,11 +90,11 @@ export default function Home() {
                 )
               },
               {
-                title: "Start things, quit things",
-                description: "Try something new, lose interest, repeat. Drifting through life hoping something will just click.",
+                title: "No skills, wasted time",
+                description: "You feel you have no skills or wasted your time. Everything seems hard and you do not know where to start.",
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 )
               }
@@ -148,7 +148,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-xl text-gray-600"
             >
-              Instead of endless searching, what if you could have a real conversation that actually understands you?
+              Instead of endless searching, what if you could have a life coach that listens to you and helps you find your passion?
             </motion.p>
           </div>
 
@@ -170,7 +170,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Real conversation, not forms</h3>
-                  <p className="text-gray-600">No more multiple choice questions that don&apos;t capture who you really are. Just natural back-and-forth dialogue that adapts to your responses.</p>
+                  <p className="text-gray-600">No more multiple choice questions or static tests. Our AI life coach listens to you and discovers your passion through natural conversation.</p>
                 </div>
               </motion.div>
 
@@ -190,7 +190,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Clear direction, not confusion</h3>
-                  <p className="text-gray-600">Get exactly 3 passion areas tailored to you. No more endless options or decision paralysis, just clear paths to explore.</p>
+                  <p className="text-gray-600">Get 3 passions that match you, based on an analysis made about you. No more endless options or confusion.</p>
                 </div>
               </motion.div>
 
@@ -210,7 +210,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Start exploring immediately</h3>
-                  <p className="text-gray-600">You&apos;ll know exactly what to do next. Get detailed roadmaps, 24-hour quick starts, and specific steps to begin exploring each passion right away.</p>
+                  <p className="text-gray-600">You&apos;ll know exactly what to do next. Get guidance from our AI life coach with roadmaps and plans tailored to your situation.</p>
                 </div>
               </motion.div>
             </div>
@@ -228,22 +228,22 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">The difference is in the approach</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Why we are different</h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  While others give you generic tests and vague advice, we have real conversations that dig into your values, strengths, and what naturally energizes you.
+                  Our AI life coach specializes in helping you find your passion and purpose. Unlike generic tests with static questions or multiple choice, we have real conversations that dig deep into who you are.
                 </p>
                 <div className="space-y-3 text-left">
                   <div className="flex items-center gap-3">
                     <svg className="w-5 h-5 text-sky-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-gray-700">Personalized conversation that adapts to you</span>
+                    <span className="text-gray-700">Two assessments that get the full picture of you</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <svg className="w-5 h-5 text-sky-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-gray-700">3 specific passion matches, not endless options</span>
+                    <span className="text-gray-700">3 specific passion matches</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <svg className="w-5 h-5 text-sky-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
