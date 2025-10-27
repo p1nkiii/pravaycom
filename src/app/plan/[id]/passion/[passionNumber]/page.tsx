@@ -67,128 +67,105 @@ export default async function PassionDetailPage({ params }: PassionDetailPagePro
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Header */}
-      <div className="border-b border-gray-200 px-8 py-5">
-        <Link 
-          href={`/plan/${id}`}
-          className="text-gray-600 hover:text-gray-800 text-sm font-medium transition-colors inline-flex items-center mb-3"
-        >
-          ← Back to All Passions
-        </Link>
-        <h1 className="text-3xl font-bold text-gray-800">{passion.name}</h1>
-        <p className="text-gray-600 mt-2">{passion.whatItIs}</p>
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-5xl mx-auto px-8 py-8">
+          <Link 
+            href={`/plan/${id}`}
+            className="text-gray-500 hover:text-gray-800 text-sm font-medium transition-colors inline-flex items-center gap-2 mb-4"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to All Passions
+          </Link>
+          <h1 className="text-4xl font-bold text-gray-900 mb-3">{passion.name}</h1>
+          <p className="text-lg text-gray-600 leading-relaxed">{passion.whatItIs}</p>
+        </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-8 py-10">
-        <div className="space-y-10">
+      <div className="max-w-5xl mx-auto px-8 py-12">
+        <div className="space-y-12">
           
-          {/* Testing Plan */}
-          <section>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              🗓️ Your 4-Week Testing Plan
-            </h2>
+          {/* Beginner Project */}
+          <section className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center text-white">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900">
+                Your Beginner Project
+              </h2>
+            </div>
             
-            {detailedPlan.testingPlan && (
-              <div className="space-y-6">
-                {/* Week 1 */}
-                {detailedPlan.testingPlan.week1 && (
-                  <div className="border border-gray-200 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-3">Week 1</h3>
-                    <div className="space-y-3">
-                      <div>
-                        <span className="font-medium text-gray-700">Your Schedule: </span>
-                        <span className="text-gray-600">{detailedPlan.testingPlan.week1.schedule}</span>
-                      </div>
-                      <div>
-                        <span className="font-medium text-gray-700">What to Do: </span>
-                        <span className="text-gray-600">{detailedPlan.testingPlan.week1.activities}</span>
-                      </div>
-                      <div>
-                        <span className="font-medium text-gray-700">What to Notice: </span>
-                        <span className="text-gray-600">{detailedPlan.testingPlan.week1.whatToNotice}</span>
-                      </div>
-                    </div>
+            {detailedPlan.beginnerProject && (
+              <div className="bg-sky-50 rounded-xl p-8 border border-sky-200">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  {detailedPlan.beginnerProject.name}
+                </h3>
+                <div className="space-y-4 text-gray-700 leading-relaxed">
+                  <div>
+                    <span className="font-semibold text-gray-900">What to build: </span>
+                    <span>{detailedPlan.beginnerProject.description}</span>
                   </div>
-                )}
-
-                {/* Week 2 */}
-                {detailedPlan.testingPlan.week2 && (
-                  <div className="border border-gray-200 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-3">Week 2</h3>
-                    <div className="space-y-3">
-                      <div>
-                        <span className="font-medium text-gray-700">Your Schedule: </span>
-                        <span className="text-gray-600">{detailedPlan.testingPlan.week2.schedule}</span>
-                      </div>
-                      <div>
-                        <span className="font-medium text-gray-700">What to Do: </span>
-                        <span className="text-gray-600">{detailedPlan.testingPlan.week2.activities}</span>
-                      </div>
-                      <div>
-                        <span className="font-medium text-gray-700">What to Notice: </span>
-                        <span className="text-gray-600">{detailedPlan.testingPlan.week2.whatToNotice}</span>
-                      </div>
-                    </div>
+                  <div>
+                    <span className="font-semibold text-gray-900">Why this tests it: </span>
+                    <span>{detailedPlan.beginnerProject.whyThisTestsIt}</span>
                   </div>
-                )}
-
-                {/* Week 3-4 */}
-                {detailedPlan.testingPlan.week3_4 && (
-                  <div className="border border-gray-200 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-3">Week 3-4</h3>
-                    <div className="space-y-3">
-                      <div>
-                        <span className="font-medium text-gray-700">Your Schedule: </span>
-                        <span className="text-gray-600">{detailedPlan.testingPlan.week3_4.schedule}</span>
-                      </div>
-                      <div>
-                        <span className="font-medium text-gray-700">What to Do: </span>
-                        <span className="text-gray-600">{detailedPlan.testingPlan.week3_4.activities}</span>
-                      </div>
-                      <div>
-                        <span className="font-medium text-gray-700">What to Notice: </span>
-                        <span className="text-gray-600">{detailedPlan.testingPlan.week3_4.whatToNotice}</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
+                </div>
               </div>
             )}
           </section>
 
-          {/* Success Indicators */}
-          <section>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              ✅ Success Indicators
-            </h2>
+          {/* Indicators */}
+          <section className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center text-white">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900">
+                Indicators to Look For
+              </h2>
+            </div>
             
-            {detailedPlan.successIndicators && (
-              <div className="space-y-4">
-                <div className="border border-green-200 bg-green-50 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-green-800 mb-3">
-                    ✅ Signs This IS Your Passion
+            {detailedPlan.indicators && (
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="bg-sky-50 rounded-xl p-6 border-2 border-sky-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Signs You LOVE It
                   </h3>
-                  <ul className="space-y-2">
-                    {detailedPlan.successIndicators.positive?.map((signal: string, idx: number) => (
-                      <li key={idx} className="text-green-700 flex items-start gap-2">
-                        <span className="mt-1">•</span>
-                        <span>{signal}</span>
+                  <ul className="space-y-3">
+                    {detailedPlan.indicators.positive?.map((signal: string, idx: number) => (
+                      <li key={idx} className="text-gray-700 flex items-start gap-3">
+                        <span className="text-gray-900 font-bold mt-1">•</span>
+                        <span className="leading-relaxed">{signal}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="border border-red-200 bg-red-50 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-red-800 mb-3">
-                    ❌ Signs This ISN&apos;T Your Passion
+                <div className="bg-sky-50 rounded-xl p-6 border-2 border-sky-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Signs It&apos;s NOT For You
                   </h3>
-                  <ul className="space-y-2">
-                    {detailedPlan.successIndicators.negative?.map((signal: string, idx: number) => (
-                      <li key={idx} className="text-red-700 flex items-start gap-2">
-                        <span className="mt-1">•</span>
-                        <span>{signal}</span>
+                  <ul className="space-y-3">
+                    {detailedPlan.indicators.negative?.map((signal: string, idx: number) => (
+                      <li key={idx} className="text-gray-700 flex items-start gap-3">
+                        <span className="text-gray-900 font-bold mt-1">•</span>
+                        <span className="leading-relaxed">{signal}</span>
                       </li>
                     ))}
                   </ul>
@@ -197,172 +174,124 @@ export default async function PassionDetailPage({ params }: PassionDetailPagePro
             )}
           </section>
 
-          {/* Obstacles */}
-          <section>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              ⚠️ Obstacles You&apos;ll Face
-            </h2>
+          {/* Action Plan */}
+          <section className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center text-white">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900">
+                Your Action Plan
+              </h2>
+            </div>
             
-            {detailedPlan.obstacles && (
-              <div className="space-y-4">
-                {detailedPlan.obstacles.map((obstacle: { name: string; why: string; solution: string; action: string }, idx: number) => (
-                  <div key={idx} className="border border-gray-200 rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                      {obstacle.name}
-                    </h3>
-                    <div className="space-y-3 text-gray-700">
-                      <div>
-                        <span className="font-medium">Why it happens: </span>
-                        <span>{obstacle.why}</span>
-                      </div>
-                      <div>
-                        <span className="font-medium">How to handle it: </span>
-                        <span>{obstacle.solution}</span>
-                      </div>
-                      <div className="bg-gray-50 p-3 rounded">
-                        <span className="font-medium">Action: </span>
-                        <span>{obstacle.action}</span>
-                      </div>
+            {detailedPlan.actionPlan && (
+              <div className="bg-sky-50 rounded-xl p-8 border border-sky-200">
+                <div className="space-y-6">
+                  {detailedPlan.actionPlan.schedule && (
+                    <div className="bg-white p-5 rounded-lg shadow-sm border border-sky-200">
+                      <span className="font-bold text-gray-900 text-lg">Schedule: </span>
+                      <span className="text-gray-700 text-lg">{detailedPlan.actionPlan.schedule}</span>
                     </div>
-                  </div>
-                ))}
+                  )}
+                  
+                  {detailedPlan.actionPlan.estimatedTime && (
+                    <div className="bg-white p-5 rounded-lg shadow-sm border border-sky-200">
+                      <span className="font-bold text-gray-900 text-lg">Estimated Time: </span>
+                      <span className="text-gray-700 text-lg">{detailedPlan.actionPlan.estimatedTime}</span>
+                    </div>
+                  )}
+
+                  {detailedPlan.actionPlan.steps && (
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">Steps:</h3>
+                      <ol className="space-y-4">
+                        {detailedPlan.actionPlan.steps.map((step: string, idx: number) => (
+                          <li key={idx} className="bg-white p-5 rounded-lg shadow-sm border border-sky-200 flex items-start gap-4">
+                            <span className="font-bold text-white bg-sky-500 rounded-full w-8 h-8 flex items-center justify-center min-w-[32px]">{idx + 1}</span>
+                            <span className="text-gray-700 leading-relaxed pt-1">{step}</span>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                  )}
+
+                  {detailedPlan.actionPlan.resources && detailedPlan.actionPlan.resources.length > 0 && (
+                    <div className="mt-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">Resources & Tools Needed:</h3>
+                      <ul className="space-y-2">
+                        {detailedPlan.actionPlan.resources.map((resource: string, idx: number) => (
+                          <li key={idx} className="bg-white p-4 rounded-lg shadow-sm border border-sky-200 flex items-start gap-3">
+                            <span className="text-gray-400 mt-1">→</span>
+                            <span className="text-gray-700 leading-relaxed">{resource}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </div>
             )}
           </section>
 
-          {/* 24-Hour Action */}
-          <section>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              🎯 Do This in the Next 24 Hours
-            </h2>
+          {/* 24-Hour Start */}
+          <section className="bg-sky-500 rounded-2xl shadow-xl p-8 text-white">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h2 className="text-3xl font-bold">
+                Start Today - 24 Hour Action
+              </h2>
+            </div>
             
             {detailedPlan.action24Hour && (
-              <div className="border-2 border-gray-800 bg-gray-50 rounded-lg p-6">
-                <div className="space-y-3">
+              <div className="bg-white/10 rounded-xl p-8 border border-white/20">
+                <div className="space-y-4">
                   <div>
-                    <span className="font-semibold text-gray-800">What to do: </span>
-                    <span className="text-gray-700">{detailedPlan.action24Hour.what}</span>
+                    <span className="font-bold text-lg">What to do: </span>
+                    <span className="text-lg">{detailedPlan.action24Hour.what}</span>
                   </div>
                   <div>
-                    <span className="font-semibold text-gray-800">How to do it: </span>
-                    <span className="text-gray-700">{detailedPlan.action24Hour.how}</span>
+                    <span className="font-bold text-lg">How to do it: </span>
+                    <span className="text-lg">{detailedPlan.action24Hour.how}</span>
                   </div>
                   <div>
-                    <span className="font-semibold text-gray-800">Why it matters: </span>
-                    <span className="text-gray-700">{detailedPlan.action24Hour.why}</span>
+                    <span className="font-bold text-lg">Why it matters: </span>
+                    <span className="text-lg">{detailedPlan.action24Hour.why}</span>
                   </div>
                 </div>
               </div>
             )}
           </section>
 
-          {/* Resources */}
-          <section>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              🔗 Resources & Links
-            </h2>
-            
-            {detailedPlan.resources && (
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3">Learn the Basics</h3>
-                  <ul className="space-y-2">
-                    {detailedPlan.resources.learn?.map((resource: string, idx: number) => (
-                      <li key={idx} className="text-gray-700 flex items-start gap-2">
-                        <span className="text-gray-400 mt-1">→</span>
-                        <span>{resource}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3">Practice & Build</h3>
-                  <ul className="space-y-2">
-                    {detailedPlan.resources.practice?.map((resource: string, idx: number) => (
-                      <li key={idx} className="text-gray-700 flex items-start gap-2">
-                        <span className="text-gray-400 mt-1">→</span>
-                        <span>{resource}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3">Tools & Software</h3>
-                  <ul className="space-y-2">
-                    {detailedPlan.resources.tools?.map((resource: string, idx: number) => (
-                      <li key={idx} className="text-gray-700 flex items-start gap-2">
-                        <span className="text-gray-400 mt-1">→</span>
-                        <span>{resource}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          {/* Career Possibilities */}
+          <section className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center text-white">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
               </div>
-            )}
-          </section>
-
-          {/* Reality Check */}
-          <section>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              💡 Reality Check
-            </h2>
+              <h2 className="text-3xl font-bold text-gray-900">
+                Career Possibilities
+              </h2>
+            </div>
             
-            {detailedPlan.realityCheck && (
-              <div className="border border-gray-200 rounded-lg p-6 space-y-3 text-gray-700">
-                <div>
-                  <span className="font-medium">Time to know if you like it: </span>
-                  <span>{detailedPlan.realityCheck.timeToKnow}</span>
-                </div>
-                <div>
-                  <span className="font-medium">Time to get decent: </span>
-                  <span>{detailedPlan.realityCheck.timeToGetDecent}</span>
-                </div>
-                <div>
-                  <span className="font-medium">Time to make money: </span>
-                  <span>{detailedPlan.realityCheck.timeToMakeMoney}</span>
-                </div>
-                <div>
-                  <span className="font-medium">Difficulty level: </span>
-                  <span>{detailedPlan.realityCheck.difficulty}</span>
-                </div>
-                <div>
-                  <span className="font-medium">Cost to start: </span>
-                  <span>{detailedPlan.realityCheck.costToStart}</span>
-                </div>
-              </div>
-            )}
-          </section>
-
-          {/* Decision Framework */}
-          <section>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              📍 After 4 Weeks - Decision Time
-            </h2>
-            
-            {detailedPlan.decisionFramework && (
-              <div className="space-y-4">
-                <div className="border border-green-200 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-green-800 mb-2">
-                    ✅ If You Loved It
-                  </h3>
-                  <p className="text-gray-700 whitespace-pre-wrap">{detailedPlan.decisionFramework.ifLoved}</p>
-                </div>
-
-                <div className="border border-yellow-200 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-yellow-800 mb-2">
-                    😐 If You Liked It But Not Obsessed
-                  </h3>
-                  <p className="text-gray-700 whitespace-pre-wrap">{detailedPlan.decisionFramework.ifLiked}</p>
-                </div>
-
-                <div className="border border-gray-200 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    ❌ If It Felt Like Work
-                  </h3>
-                  <p className="text-gray-700 whitespace-pre-wrap">{detailedPlan.decisionFramework.ifFeltLikeWork}</p>
-                </div>
+            {detailedPlan.careerPossibilities && (
+              <div className="grid md:grid-cols-2 gap-6">
+                {detailedPlan.careerPossibilities.map((career: { title: string; description: string }, idx: number) => (
+                  <div key={idx} className="bg-sky-50 rounded-xl p-6 border-2 border-sky-200 hover:shadow-lg transition-shadow">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      {career.title}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">{career.description}</p>
+                  </div>
+                ))}
               </div>
             )}
           </section>
@@ -371,9 +300,12 @@ export default async function PassionDetailPage({ params }: PassionDetailPagePro
           <div className="pt-6 border-t border-gray-200">
             <Link
               href={`/plan/${id}`}
-              className="inline-flex items-center text-gray-600 hover:text-gray-800 font-medium transition-colors"
+              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 font-medium transition-colors group"
             >
-              ← Explore Other Passions
+              <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Explore Other Passions
             </Link>
           </div>
         </div>
@@ -381,4 +313,3 @@ export default async function PassionDetailPage({ params }: PassionDetailPagePro
     </div>
   )
 }
-

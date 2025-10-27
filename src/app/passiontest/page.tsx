@@ -28,7 +28,7 @@ export default function PassionTestLanding() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed"
             >
-              {`Stop guessing what you're meant to do. Our AI-powered passion test reveals exactly what drives you and gives you a clear path forward.`}
+              Let our AI life coach help you discover what truly drives you
             </motion.p>
 
             {/* Value Proposition */}
@@ -57,6 +57,13 @@ export default function PassionTestLanding() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 <span>Action plan included</span>
+              </div>
+              <div className="hidden sm:block w-px h-6 bg-gray-300"></div>
+              <div className="flex items-center gap-2 text-sky-600 font-semibold">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Career suggestions</span>
               </div>
             </motion.div>
 
@@ -106,8 +113,52 @@ export default function PassionTestLanding() {
         </motion.a>
       </section>
 
+      {/* Video Demo Section */}
+      <section id="how-it-works" className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <motion.h2 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            >
+              See how we find your passion
+            </motion.h2>
+            <motion.p 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-xl text-gray-600"
+            >
+              Watch our AI coach discover your passion through a conversation
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial={false}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative rounded-2xl overflow-hidden shadow-2xl"
+          >
+            {/* Loom Video Embed */}
+            <div style={{ position: 'relative', paddingBottom: '64.86486486486486%', height: 0 }}>
+              <iframe 
+                src="https://www.loom.com/embed/91e16c087d464ccfb836f153d0320a8c?sid=15ee46c6-0857-45a4-8e3f-b407ce524baa&hideEmbedTopBar=true" 
+                frameBorder="0" 
+                allowFullScreen 
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* The Problem Section */}
-      <section id="problem-section" className="py-24 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2 
@@ -133,8 +184,8 @@ export default function PassionTestLanding() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Overwhelmed and stuck",
-                description: `So many options, no skills, everything seems hard. You don't know where to start, so you do nothing.`,
+                title: "Too many options",
+                description: "You like a lot of things but cannot make up your mind. But with so many possibilities, you do not know what to focus on.",
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -151,11 +202,11 @@ export default function PassionTestLanding() {
                 )
               },
               {
-                title: "Start things, quit things",
-                description: "Try something new, lose interest, repeat. Drifting through life hoping something will just click.",
+                title: "No skills, wasted time",
+                description: "You feel you have no skills or wasted your time. Everything seems hard and you do not know where to start.",
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 )
               }
@@ -200,7 +251,7 @@ export default function PassionTestLanding() {
               transition={{ duration: 0.6 }}
               className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
             >
-              What if there was a better way?
+              A better way to find your passion
             </motion.h2>
             <motion.p 
               initial={false}
@@ -209,15 +260,15 @@ export default function PassionTestLanding() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-xl text-gray-600"
             >
-              Real conversation that actually understands you.
+              Instead of endless searching, what if you could have a life coach that listens to you and helps you find your passion?
             </motion.p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Real conversation",
-                description: "Not forms or multiple choice. Natural dialogue that adapts to you.",
+                title: "Real conversation, not forms",
+                description: "No more multiple choice questions or static tests. Our AI life coach listens to you and discovers your passion through natural conversation.",
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -225,8 +276,8 @@ export default function PassionTestLanding() {
                 )
               },
               {
-                title: "Clear direction",
-                description: "Exactly 3 passion matches. No endless options or confusion.",
+                title: "Clear direction, not confusion",
+                description: "Get 3 passions that match you, based on an analysis made about you. No more endless options or confusion.",
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -234,8 +285,8 @@ export default function PassionTestLanding() {
                 )
               },
               {
-                title: "Start immediately",
-                description: "Know exactly what to do next. Action plans you can start today.",
+                title: "Start exploring immediately",
+                description: "You will know exactly what to do next. Get guidance from our AI life coach with action plans tailored to your situation.",
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -249,70 +300,18 @@ export default function PassionTestLanding() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+                className="text-center"
               >
-                {/* Subtle background on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-sky-300 to-sky-400 opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
-                
-                {/* Icon */}
-                <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-sky-300 to-sky-400 text-white mb-4 group-hover:scale-110 transition-all duration-300">
-                  {item.icon}
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-sky-100 mb-4">
+                  <div className="text-sky-600">
+                    {item.icon}
+                  </div>
                 </div>
-                
-                {/* Content */}
-                <h3 className="relative text-xl font-bold text-gray-900 mb-3">
-                  {item.title}
-                </h3>
-                <p className="relative text-gray-600 leading-relaxed">
-                  {item.description}
-                </p>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600">{item.description}</p>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Video Demo Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <motion.h2 
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-            >
-              See how it works
-            </motion.h2>
-            <motion.p 
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-xl text-gray-600"
-            >
-              Watch a quick demo of the conversation in action
-            </motion.p>
-          </div>
-
-          <motion.div
-            initial={false}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative rounded-2xl overflow-hidden shadow-2xl"
-          >
-            {/* Loom Video Embed */}
-            <div style={{ position: 'relative', paddingBottom: '64.86486486486486%', height: 0 }}>
-              <iframe 
-                src="https://www.loom.com/embed/91e16c087d464ccfb836f153d0320a8c?sid=15ee46c6-0857-45a4-8e3f-b407ce524baa&hideEmbedTopBar=true" 
-                frameBorder="0" 
-                allowFullScreen 
-                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-              />
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -327,7 +326,7 @@ export default function PassionTestLanding() {
               transition={{ duration: 0.6 }}
               className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
             >
-              Have a real conversation with our AI
+              Talk to our AI life coach
             </motion.h2>
             <motion.p 
               initial={false}
@@ -336,7 +335,7 @@ export default function PassionTestLanding() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-xl text-gray-600 max-w-3xl mx-auto"
             >
-              No forms, no multiple choice. Our AI asks questions, listens to your answers, and adapts the conversation to help you discover your passion.
+              Our AI life coach is specialized in helping you find your passion. Instead of multiple choice questions or forms, we guide you through conversations that help you discover what truly drives you.
             </motion.p>
           </div>
 
@@ -346,22 +345,22 @@ export default function PassionTestLanding() {
                 {
                   number: "01",
                   title: "Talk about your situation",
-                  description: `Share where you are in life, what you're looking for, and what's holding you back through an adaptive conversation.`
+                  description: "Share where you are in life, what you're looking for, and what's holding you back."
                 },
                 {
                   number: "02",
                   title: "Explore what excites you",
-                  description: "Answer questions that adapt to your responses. Dig into your values, strengths, and what naturally energizes you."
+                  description: "Find out what excites you and what energizes you. Discuss your interests, values, and what naturally draws you in."
                 },
                 {
                   number: "03",
                   title: "Get 3 personalized matches",
-                  description: "Receive specific passion areas based on everything you shared, not generic test results."
+                  description: "Receive 3 passions tailored to you based on what you shared."
                 },
                 {
                   number: "04",
                   title: "Get complete action plans",
-                  description: "Access detailed roadmaps, 24 hour quick starts, success indicators, and curated resources. Everything you need to explore each passion."
+                  description: "Access action plans with 24-hour starts, indicators, and everything you need to explore."
                 }
               ].map((step, idx) => (
                 <motion.div
@@ -413,35 +412,41 @@ export default function PassionTestLanding() {
                     <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>4-week testing roadmap for each passion</span>
+                    <span>Beginner project to test each passion</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>24-hour action plan to start immediately</span>
+                    <span>Action plan with steps and resources</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Success indicators to know if it&apos;s right</span>
+                    <span>Indicators to know if it&apos;s right for you</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Curated resources and next steps</span>
+                    <span>24-hour start to begin today</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Career possibilities in each field</span>
                   </li>
                 </ul>
                 
                 {/* Pricing */}
                 <div className="mt-8 pt-6 border-t border-white/20">
                   <div className="flex items-baseline gap-2">
+                    <span className="text-lg opacity-80">ONLY</span>
                     <span className="text-5xl font-bold">$9.99</span>
-                    <span className="text-xl opacity-90">USD</span>
                   </div>
-                  <p className="mt-2 text-white/80 text-sm">One-time payment. Complete access to all features.</p>
+                  <p className="mt-2 text-white/80 text-sm">One-time payment. Lifetime access to everything.</p>
                 </div>
               </div>
             </motion.div>

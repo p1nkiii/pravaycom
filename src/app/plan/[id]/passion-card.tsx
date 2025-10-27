@@ -58,39 +58,54 @@ export default function PassionCard({ passion, index, conversationId }: PassionC
     }
   }
 
-  const icons = ['🎯', '🌟', '⭐']
+  const getNumberLabel = (idx: number) => {
+    if (idx === 0) return '1st'
+    if (idx === 1) return '2nd'
+    return '3rd'
+  }
 
   return (
-    <div className="border border-gray-200 rounded-lg p-8 hover:border-gray-800 transition-all">
+    <div className="bg-white border-2 border-sky-200 rounded-2xl p-8 hover:border-sky-400 hover:shadow-xl transition-all">
       {/* Passion Header */}
-      <div className="flex items-start gap-4 mb-6">
-        <div className="text-4xl">
-          {icons[index]}
+      <div className="flex items-start gap-6 mb-8">
+        <div className="w-16 h-16 rounded-xl bg-sky-500 flex items-center justify-center text-white flex-shrink-0">
+          <span className="text-2xl font-bold">{index + 1}</span>
         </div>
         <div className="flex-1">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">
-            {passion.name}
-          </h2>
-          <div className="h-1 w-20 bg-gray-800"></div>
+          <div className="flex items-center gap-3 mb-2">
+            <h2 className="text-3xl font-bold text-gray-900">
+              {passion.name}
+            </h2>
+            <span className="text-sm text-gray-500 font-medium bg-gray-100 px-3 py-1 rounded-full">
+              {getNumberLabel(index)} Match
+            </span>
+          </div>
+          <div className="h-1 w-24 bg-sky-500 rounded-full"></div>
         </div>
       </div>
 
       {/* What It Is */}
-      <div className="mb-6">
-        <h3 className="text-lg font-semibold text-gray-800 mb-2">
-          What It Is:
+      <div className="mb-8">
+        <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <svg className="w-5 h-5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          What It Is
         </h3>
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-gray-700 leading-relaxed text-lg pl-7">
           {passion.whatItIs}
         </p>
       </div>
 
       {/* Why It Fits You */}
-      <div className="mb-6">
-        <h3 className="text-lg font-semibold text-gray-800 mb-2">
-          Why This Fits You:
+      <div className="mb-8">
+        <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <svg className="w-5 h-5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Why This Fits You
         </h3>
-        <div className="text-gray-700 leading-relaxed whitespace-pre-wrap">
+        <div className="text-gray-700 leading-relaxed whitespace-pre-wrap pl-7">
           {passion.whyItFits}
         </div>
       </div>
@@ -99,7 +114,7 @@ export default function PassionCard({ passion, index, conversationId }: PassionC
       <button
         onClick={handleTryPassion}
         disabled={isGenerating}
-        className="bg-sky-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-sky-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
+        className="bg-sky-500 text-white px-10 py-4 rounded-lg font-semibold hover:bg-sky-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto text-lg shadow-lg hover:shadow-xl"
       >
         {isGenerating ? 'Generating Action Plan...' : passion.detailedPlan ? 'View Action Plan' : 'Try This Passion'}
       </button>

@@ -98,7 +98,7 @@ export default function ClientChat({ initialMessages, passionId, isCompleted, on
             <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div className={`max-w-xl ${
                 message.role === 'user' 
-                  ? 'bg-gray-800 text-white' 
+                  ? 'bg-sky-500 text-white' 
                   : 'border border-gray-200 text-gray-800'
               } rounded-lg p-5`}>
                 <div className="text-xs font-medium mb-2 opacity-70">

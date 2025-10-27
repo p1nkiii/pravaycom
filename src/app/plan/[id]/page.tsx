@@ -65,21 +65,27 @@ export default async function PlanPage({ params }: PlanPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Header */}
-      <div className="border-b border-gray-200 px-8 py-5">
-        <h1 className="text-2xl font-bold text-gray-800 mb-2">Your Passion Discovery</h1>
-        <a 
-          href="/dashboard" 
-          className="text-gray-600 hover:text-gray-800 text-sm font-medium transition-colors inline-flex items-center"
-        >
-          ← Back to Dashboard
-        </a>
+      <div className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-6xl mx-auto px-8 py-8">
+          <a 
+            href="/dashboard" 
+            className="text-gray-500 hover:text-gray-900 text-sm font-medium transition-colors inline-flex items-center gap-2 mb-4"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Dashboard
+          </a>
+          <h1 className="text-4xl font-bold text-gray-900">Your Passion Discovery</h1>
+          <p className="text-lg text-gray-600 mt-3">Explore your top 3 personalized passion matches</p>
+        </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-5xl mx-auto px-8 py-10">
-        <div className="space-y-8">
+      <div className="max-w-6xl mx-auto px-8 py-12">
+        <div className="space-y-6">
           {passions.map((passion, index) => (
             <PassionCard
               key={index}
@@ -92,11 +98,11 @@ export default async function PlanPage({ params }: PlanPageProps) {
 
         {/* Empty State */}
         {passions.length === 0 && (
-          <div className="text-center py-12 border border-gray-200 rounded-lg">
-            <p className="text-gray-600 mb-4">No passions generated yet.</p>
+          <div className="bg-white border-2 border-gray-200 rounded-2xl p-16 text-center shadow-lg">
+            <p className="text-gray-600 text-lg mb-4">No passions generated yet.</p>
             <a 
               href={`/passion/${id}`}
-              className="text-gray-800 hover:underline font-medium"
+              className="text-gray-900 hover:underline font-medium text-lg"
             >
               Go back to chat
             </a>

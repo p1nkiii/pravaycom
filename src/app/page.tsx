@@ -45,6 +45,50 @@ export default function Home() {
         </motion.a>
       </section>
 
+      {/* Video Demo Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <motion.h2 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+            >
+              See how we find your passion
+            </motion.h2>
+            <motion.p 
+              initial={false}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-xl text-gray-600"
+            >
+              Watch our AI coach discover your passion through a conversation
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial={false}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative rounded-2xl overflow-hidden shadow-2xl"
+          >
+            {/* Loom Video Embed */}
+            <div style={{ position: 'relative', paddingBottom: '64.86486486486486%', height: 0 }}>
+              <iframe 
+                src="https://www.loom.com/embed/91e16c087d464ccfb836f153d0320a8c?sid=15ee46c6-0857-45a4-8e3f-b407ce524baa&hideEmbedTopBar=true" 
+                frameBorder="0" 
+                allowFullScreen 
+                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* The Problem Section */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -139,7 +183,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
             >
-              What if there was a better way?
+              A better way to find your passion
             </motion.h2>
             <motion.p 
               initial={false}
@@ -204,13 +248,13 @@ export default function Home() {
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center">
                     <svg className="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-2">Start exploring immediately</h3>
-                  <p className="text-gray-600">You&apos;ll know exactly what to do next. Get guidance from our AI life coach with roadmaps and plans tailored to your situation.</p>
+                  <p className="text-gray-600">You will know exactly what to do next. Get guidance from our AI life coach with action plans tailored to your situation.</p>
                 </div>
               </motion.div>
             </div>
@@ -224,9 +268,7 @@ export default function Home() {
             >
               <div className="text-center">
                 <div className="w-16 h-16 bg-sky-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+                  <span className="text-3xl font-bold text-white">P</span>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Why we are different</h3>
                 <p className="text-gray-600 leading-relaxed mb-6">
@@ -258,50 +300,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Video Demo Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <motion.h2 
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
-            >
-              See how it works
-            </motion.h2>
-            <motion.p 
-              initial={false}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-xl text-gray-600"
-            >
-              Watch a quick demo of the conversation in action
-            </motion.p>
-          </div>
-
-          <motion.div
-            initial={false}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative rounded-2xl overflow-hidden shadow-2xl"
-          >
-            {/* Loom Video Embed */}
-            <div style={{ position: 'relative', paddingBottom: '64.86486486486486%', height: 0 }}>
-              <iframe 
-                src="https://www.loom.com/embed/91e16c087d464ccfb836f153d0320a8c?sid=15ee46c6-0857-45a4-8e3f-b407ce524baa&hideEmbedTopBar=true" 
-                frameBorder="0" 
-                allowFullScreen 
-                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-              />
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Solution Section */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -313,7 +311,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
             >
-              Have a real conversation with our AI
+              Talk to our AI life coach
             </motion.h2>
             <motion.p 
               initial={false}
@@ -322,7 +320,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-xl text-gray-600 max-w-3xl mx-auto"
             >
-              No forms, no multiple choice. Our AI asks questions, listens to your answers, and adapts the conversation to help you discover your passion.
+              Our AI life coach is specialized in helping you find your passion. Instead of multiple choice questions or forms, we guide you through conversations that help you discover what truly drives you.
             </motion.p>
           </div>
 
@@ -332,22 +330,22 @@ export default function Home() {
                 {
                   number: "01",
                   title: "Talk about your situation",
-                  description: "Share where you are in life, what you're looking for, and what's holding you back through an adaptive conversation."
+                  description: "Share where you are in life, what you're looking for, and what's holding you back."
                 },
                 {
                   number: "02",
                   title: "Explore what excites you",
-                  description: "Answer questions that adapt to your responses. Dig into your values, strengths, and what naturally energizes you."
+                  description: "Find out what excites you and what energizes you. Discuss your interests, values, and what naturally draws you in."
                 },
                 {
                   number: "03",
                   title: "Get 3 personalized matches",
-                  description: "Receive specific passion areas based on everything you shared, not generic test results."
+                  description: "Receive 3 passions tailored to you based on what you shared."
                 },
                 {
                   number: "04",
                   title: "Get complete action plans",
-                  description: "Access detailed roadmaps, 24 hour quick starts, success indicators, and curated resources. Everything you need to explore each passion."
+                  description: "Access action plans with 24-hour starts, indicators, and everything you need to explore."
                 }
               ].map((step, idx) => (
                 <motion.div
@@ -399,35 +397,41 @@ export default function Home() {
                     <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>4-week testing roadmap for each passion</span>
+                    <span>Beginner project to test each passion</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>24-hour action plan to start immediately</span>
+                    <span>Action plan with steps and resources</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Success indicators to know if it&apos;s right</span>
+                    <span>Indicators to know if it&apos;s right for you</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>Curated resources and next steps</span>
+                    <span>24-hour start to begin today</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-white flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Career possibilities in each field</span>
                   </li>
                 </ul>
                 
                 {/* Pricing */}
                 <div className="mt-8 pt-6 border-t border-white/20">
                   <div className="flex items-baseline gap-2">
+                    <span className="text-lg opacity-80">ONLY</span>
                     <span className="text-5xl font-bold">$9.99</span>
-                    <span className="text-xl opacity-90">USD</span>
                   </div>
-                  <p className="mt-2 text-white/80 text-sm">One-time payment. Complete access to all features.</p>
+                  <p className="mt-2 text-white/80 text-sm">One-time payment. Lifetime access to everything.</p>
                 </div>
               </div>
             </motion.div>
@@ -493,7 +497,7 @@ export default function Home() {
               },
               {
                 title: "Practical",
-                description: "4-week testing cycles fit into your actual life. No need to quit your job or disappear.",
+                description: "Small beginner projects that fit into your actual life. No need to quit your job or disappear.",
                 icon: (
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />

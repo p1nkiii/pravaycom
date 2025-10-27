@@ -58,7 +58,7 @@ export default function PlanButton({ passionId, existingPlan }: PlanButtonProps)
       <button 
         onClick={handleGeneratePlan}
         disabled={isGenerating}
-        className="bg-gray-800 hover:bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold shadow-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="bg-sky-500 hover:bg-sky-600 text-white px-8 py-3 rounded-lg font-semibold shadow-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isGenerating ? 'Generating...' : existingPlan ? 'View Plan' : 'Generate Plan'}
       </button>
