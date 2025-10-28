@@ -79,7 +79,7 @@ export default function Home() {
             {/* Loom Video Embed */}
             <div style={{ position: 'relative', paddingBottom: '64.86486486486486%', height: 0 }}>
               <iframe 
-                src="https://www.loom.com/embed/91e16c087d464ccfb836f153d0320a8c?sid=15ee46c6-0857-45a4-8e3f-b407ce524baa&hideEmbedTopBar=true" 
+                src="https://www.loom.com/embed/c63517c5ec7e4d558e0ad8208020fe33?hideEmbedTopBar=true" 
                 frameBorder="0" 
                 allowFullScreen 
                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
