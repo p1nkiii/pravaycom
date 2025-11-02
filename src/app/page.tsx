@@ -19,7 +19,7 @@ export default function Home() {
             </p>
             <HeroVanishInput />
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <a href="#how-it-works" className="bg-sky-400 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-sky-500 transition-colors">
+              <a href="#see-how-we-find-your-passion" className="bg-sky-400 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-sky-500 transition-colors">
                 Start Now
               </a>
             </div>
@@ -28,7 +28,7 @@ export default function Home() {
         
         {/* Scroll Down Arrow */}
         <motion.a
-          href="#how-it-works"
+          href="#see-how-we-find-your-passion"
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400 hover:text-sky-500 transition-colors cursor-pointer"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* Video Demo Section */}
-      <section className="py-24 bg-white">
+      <section id="see-how-we-find-your-passion" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <motion.h2 
