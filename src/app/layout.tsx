@@ -27,10 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {/* Google Analytics */}
+      <head>
+        {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-KVQHE4ZH3Q"
           strategy="afterInteractive"
@@ -43,7 +41,10 @@ export default function RootLayout({
             gtag('config', 'G-KVQHE4ZH3Q');
           `}
         </Script>
-        
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <AppHeader />
         {children}
         <Analytics />
