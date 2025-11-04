@@ -3,11 +3,11 @@ import type { NextConfig } from "next";
 function buildCsp(): string {
   const isDev = process.env.NODE_ENV !== 'production'
   const scriptSrc = isDev
-    ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:"
-    : "script-src 'self' 'unsafe-inline' blob:"
+    ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://*.posthog.com"
+    : "script-src 'self' 'unsafe-inline' blob: https://*.posthog.com"
   const connectSrc = isDev
-    ? "connect-src 'self' ws: wss: https://*.supabase.co https://api.openai.com https://*.stripe.com"
-    : "connect-src 'self' https://*.supabase.co https://api.openai.com https://*.stripe.com"
+    ? "connect-src 'self' ws: wss: https://*.supabase.co https://api.openai.com https://*.stripe.com https://*.posthog.com"
+    : "connect-src 'self' https://*.supabase.co https://api.openai.com https://*.stripe.com https://*.posthog.com"
   const imgSrc = isDev
     ? "img-src 'self' data: blob:"
     : "img-src 'self' data:"

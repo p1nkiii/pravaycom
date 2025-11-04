@@ -4,6 +4,7 @@ import "./globals.css";
 import AppHeader from "@/components/AppHeader";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import { PostHogProvider, PostHogPageView } from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,9 +46,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AppHeader />
-        {children}
-        <Analytics />
+        <PostHogProvider>
+          <PostHogPageView />
+          <AppHeader />
+          {children}
+          <Analytics />
+        </PostHogProvider>
       </body>
     </html>
   );
