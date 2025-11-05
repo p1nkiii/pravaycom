@@ -116,7 +116,7 @@ export default function PassionCard({ passion, index, conversationId }: PassionC
         disabled={isGenerating}
         className="bg-sky-500 text-white px-10 py-4 rounded-lg font-semibold hover:bg-sky-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto text-lg shadow-lg hover:shadow-xl"
       >
-        {isGenerating ? 'Generating Action Plan...' : passion.detailedPlan ? 'View Action Plan' : 'Try This Passion'}
+        {isGenerating ? 'Generating Action Plan...' : passion.detailedPlan ? 'Try This Career' : 'Try This Career'}
       </button>
     </div>
   )

@@ -60,7 +60,7 @@ export default function PlanButton({ passionId, existingPlan }: PlanButtonProps)
         disabled={isGenerating}
         className="bg-sky-500 hover:bg-sky-600 text-white px-8 py-3 rounded-lg font-semibold shadow-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {isGenerating ? 'Generating...' : existingPlan ? 'View Plan' : 'Generate Plan'}
+        {isGenerating ? 'Generating...' : existingPlan ? 'View Career' : 'Generate Plan'}
       </button>
     </div>
   )
