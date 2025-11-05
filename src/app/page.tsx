@@ -343,7 +343,6 @@ export default function Home() {
           >
             Find Your Career Now!
           </motion.a>
-          <p className="mt-6 text-white text-sm opacity-90">Takes less than 15 minutes</p>
         </div>
       </section>
 
