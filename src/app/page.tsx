@@ -16,7 +16,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
             >
-              Find Your <span className="text-sky-400">Career Path</span> in Minutes
+              Find Your <span className="text-sky-400">Passion</span> in Minutes
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
