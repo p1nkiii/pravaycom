@@ -34,11 +34,6 @@ export default async function PassionIdPage({ params }: PassionPageProps) {
     redirect('/dashboard')
   }
 
-  // If still in situation assessment, redirect to that page
-  if (passion.stage === 'situation_assessment') {
-    redirect(`/situation-assessment/${id}`)
-  }
-
   // Parse chat messages from JSON
   const chatMessages = Array.isArray(passion.chat) ? passion.chat : []
 

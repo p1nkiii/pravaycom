@@ -69,22 +69,22 @@ export async function startTest() {
     }
   }
 
-  // Insert a new entry into the passion table with initial situation assessment message
-  const initialAssessmentChat = [
+  // Insert a new entry into the passion table with initial conversation message
+  const initialChat = [
     {
-      role: "assistant",
-      content: "Hi there! I'm excited to help you on this journey of self-discovery. Before we dive into exploring your passions, I'd love to understand where you are in life right now. What are you currently doing these days? Are you working, studying, or in a phase of transition?"
-    }
+      role: "assistant" as const,
+      content:
+        "Hey! I'm excited to help you discover career paths that actually fit you. Before we dive in, tell me a bit about your current situation. Are you working, studying, or in between right now? Anything about your energy, time, or goals I should know before we dig into what excites you?",
+    },
   ]
 
   const { data, error } = await supabase
     .from('passion')
     .insert({
       user_id: user.id,
-      stage: 'situation_assessment',
-      assessment_chat: initialAssessmentChat,
+      assessment_chat: [],
       assessment_started_at: new Date().toISOString(),
-      chat: [],
+      chat: initialChat,
       done: false,
       plan: null
     })
@@ -112,6 +112,6 @@ export async function startTest() {
     throw new Error(`Failed to start test: ${error.message || 'Unknown error'}`)
   }
 
-  // Redirect to the situation assessment page
-  redirect(`/situation-assessment/${data[0].id}`)
+  // Redirect directly to the passion assessment conversation
+  redirect(`/passion/${data[0].id}`)
 }

@@ -35,18 +35,13 @@ export async function POST(request: NextRequest) {
     // Fetch the current passion entry (including assessment context)
     const { data: passion, error: fetchError } = await supabase
       .from('passion')
-      .select('chat, stage, assessment_context')
+      .select('chat, done')
       .eq('id', passionId)
       .eq('user_id', user.id)
       .single()
 
     if (fetchError || !passion) {
       return NextResponse.json({ error: 'Passion entry not found' }, { status: 404 })
-    }
-
-    // Verify we're in the passion discovery stage
-    if (passion.stage !== 'passion_discovery') {
-      return NextResponse.json({ error: 'Invalid conversation stage' }, { status: 400 })
     }
 
     // Parse existing chat or initialize empty array
@@ -67,34 +62,18 @@ export async function POST(request: NextRequest) {
       content: msg.content
     }))
 
-    // Build system prompt with optional assessment context
-    let contextPrefix = ''
-    if (passion.assessment_context) {
-      contextPrefix = `IMPORTANT CONTEXT FROM SITUATION ASSESSMENT:
-${passion.assessment_context}
+    // System prompt for a shorter passion discovery flow
+    const systemPrompt = `You are an upbeat career discovery guide. Keep the conversation short and natural (about 8-10 total questions). Responses must be warm, plain language, and at most 4 sentences.
 
-Use this context to tailor your questions and make the conversation more relevant to their specific situation, goals, and constraints. Reference their context naturally in your questions.
+Conversation flow:
+1. Current Situation (1-2 questions): confirm work/study status, time/energy, and goal for the career change. If the user already told you, acknowledge it and move on quickly.
+2. Energy & Interests (2-3 questions): uncover what excites them, what they look forward to, and moments of flow.
+3. Strengths & Evidence (2-3 questions): discover skills they use naturally and what others rely on them for.
+4. Meaning & Fit (2-3 questions): dig into problems they care about, lifestyles they want, and constraints that matter.
 
----
+Reference earlier answers briefly so the conversation feels connected. After each answer decide if you truly need another question; keep it efficient.
 
-`
-    }
-
-    // System prompt for passion detection (condensed version)
-    const systemPrompt = `${contextPrefix}You are a passion discovery expert. Guide a natural conversation (NOT a questionnaire) through 5 stages. Ask 15-20 questions total, 2-3 per stage. Tailor to user's intent (career/hobby/life direction) from their first answer.
-
-5 STAGES:
-1. ENERGY (2-3Q): What energizes them, flow states, excitement
-2. VALUES (3-4Q): What feels meaningful, problems they care about
-3. STRENGTHS (3-4Q): Natural talents, what people ask them for help with
-4. CURIOSITY (3-4Q): Long-term interests, childhood fascinations
-5. SYNTHESIS (3-4Q): Connect patterns, confirm passion hypotheses
-
-Style: Conversational, warm, empathetic. Use simple, everyday language - avoid jargon or complex words. Acknowledge emotions naturally when you sense genuine passion ("That sounds really fulfilling"). Keep brief. Don't mention stages/framework. Use "you" not "the person".
-
-Energy detection: High energy (detailed, excited) → brief acknowledgment + follow-up. Low energy (vague, "I guess") → ask what they'd rather do.
-
-When you have enough info across all 5 stages, end with EXACTLY:
+When you have enough insight to propose directions, summarise key takeaways, reflect them back, and end with EXACTLY:
 "Thank you for sharing so much with me. I have a clear idea of what might suit you perfectly."`
 
     // Call OpenAI API
