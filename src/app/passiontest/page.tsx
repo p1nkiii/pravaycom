@@ -444,7 +444,7 @@ export default function PassionTestLanding() {
                 <div className="mt-8 pt-6 border-t border-white/20">
                   <div className="flex items-baseline gap-2">
                     <span className="text-lg opacity-80">ONLY</span>
-                    <span className="text-5xl font-bold">$9.99</span>
+                    <span className="text-5xl font-bold">$4.99</span>
                   </div>
                   <p className="mt-2 text-white/80 text-sm">One-time payment. Lifetime access to everything.</p>
                 </div>

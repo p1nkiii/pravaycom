@@ -303,10 +303,10 @@ export default function Home() {
               <div className="pt-6 border-t border-white/20">
                 <div className="flex items-baseline gap-3">
                   <span className="text-lg opacity-90">Only</span>
-                  <div className="flex items-baseline gap-3">
-                    <span className="text-2xl text-white/70 line-through">$19.99</span>
-                    <span className="text-5xl font-bold">$9.99</span>
-                  </div>
+                <div className="flex items-baseline gap-3">
+                  <span className="text-2xl text-white/70 line-through">$9.99</span>
+                  <span className="text-5xl font-bold">$4.99</span>
+                </div>
                 </div>
                 <p className="mt-2 text-white/90 text-sm">One-time payment. Lifetime access.</p>
               </div>
