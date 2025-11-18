@@ -304,7 +304,7 @@ export default function Home() {
                 <div className="flex items-baseline gap-3">
                   <span className="text-lg opacity-90">Only</span>
                 <div className="flex items-baseline gap-3">
-                  <span className="text-2xl text-white/70 line-through">$9.99</span>
+                  <span className="text-2xl text-white/70 line-through">$19.99</span>
                   <span className="text-5xl font-bold">$4.99</span>
                 </div>
                 </div>
